@@ -5,11 +5,13 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { REMOVE_ITEM_FROM_BASKET } from '../../components/ContextApi/Types';
 import { useStateValue } from '../../components/ContextApi/StateProvider';
+import './Home.css';
+import Products from '../../components/Products/Products';
 
 const Home = () => {
     
     const [state, setState] = useState({});
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ user, basket }, dispatch] = useStateValue();
 
     const checkingCookieUser = () => {
         try {
@@ -51,9 +53,21 @@ const Home = () => {
         userName: "Go6o"
     }]
 
-    return <div className="d-flex">
+    return <div className="container-fluid pl-0 pr-0 pt-0 mt-0 home">
 
-        {state?.user ?
+        <img className="home__image" src="/images/amazon_prime.jpg" alt="." />
+
+        {/* Products*/}
+
+        <Products
+            id="123123"
+            title="the product"
+            price={11.99}
+            rating={5}
+            image="https://cdn.pixabay.com/photo/2014/12/08/14/23/pocket-watch-560937_960_720.jpg"
+        />
+
+        {/* {state?.user ?
             <div className="row">
                 {array.map((data, index) =>
                     (<Cards 
@@ -66,10 +80,9 @@ const Home = () => {
             : <div
                 className="text-center load">
                 Not logged
-                </div>}
-
-        <button onClick={removefromBasket}>Remove item</button>
-
+                </div>} 
+        
+        <button onClick={removefromBasket}>Remove item</button> */}
         <div className="spacer"></div>
     </div>
 }

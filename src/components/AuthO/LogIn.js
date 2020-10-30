@@ -10,6 +10,7 @@ import setCookie from '../Cookies/SetCookie';
 import { useState } from 'react';
 import { useStateValue } from '../ContextApi/StateProvider';
 import { CHEK_USER } from '../ContextApi/Types';
+import { Link } from 'react-router-dom';
 
 const Login = (props) => {
     const history = useHistory();
@@ -145,7 +146,7 @@ const Login = (props) => {
 
                 <form className="registerForm text-center" onSubmit={loginFunc}>
 
-                    <h3>Email</h3>
+                    <h3 className="text-white shadow-box">Email</h3>
                     <FormControl
                         onChange={emailHandler}
                         className="userInput m-auto"
@@ -157,14 +158,14 @@ const Login = (props) => {
                     />
                     <span id="emailError"></span>
 
-                    <h3>Password</h3>
+                    <h3 className="text-white shadow-box">Password</h3>
                     <FormControl
                         type="password"
                         onChange={passwordHandler}
                         className="passwordInput m-auto"
                         maxLength="60"
                         value={passwordState}
-                        placeholder="password"
+                        placeholder="Password"
                         name="password"
                     />
                     <span id="passError"></span>
@@ -176,7 +177,18 @@ const Login = (props) => {
                         className="btn btn-primary buttons"
                     />}
 
+                    <Link
+                        to="/AuthO/Register"
+                        className="mr-3 text-infos">
+                        <div className="">
+                            <span className="header__optionsLineOne">Dont have account </span>< br />
+                            <span className="register__link text-white shadow-box">Create new account</span>
+                        </div>
+                    </Link>
+
                 </form>
+
+                
 
                 <div className="spacer"></div>
             </div>

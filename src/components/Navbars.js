@@ -8,12 +8,12 @@ import HeaderOptions from './Header/HearderOptions';
 
 const Navbars = () => {
 
-    return <Navbar bg="light" className="header" expand="lg">
+    return <Navbar bg="light" className="d-flex header mb-0" expand="lg">
 
         <Link
             to="/">
             <img
-                className="header__logo"
+                className="header__logo text-left"
                 src="/images/amazon_logo.png"
             />
         </Link>

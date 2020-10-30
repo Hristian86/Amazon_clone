@@ -156,20 +156,20 @@ const Register = () => {
 
             <form className="registerForm text-center" onSubmit={signUpFunc}>
 
-                <h3>Email</h3>
-                <FormControl className="userInput m-auto" onChange={emailHandler} type="email" name="email" maxLength="50" placeholder="email" />
+                <h3 className="text-white shadow-box">Email</h3>
+                <FormControl className="userInput m-auto" onChange={emailHandler} type="email" name="email" maxLength="50" placeholder="Email" />
                 <span id="emailError"></span>
 
-                <h3>User name</h3>
+                <h3 className="text-white shadow-box">User name</h3>
                 <FormControl onChange={userHandler} type="text" className="passwordInput m-auto" maxLength="60" placeholder="User name" id="user" name="userName" />
                 <span id="userError"></span>
 
-                <h3>Password</h3>
-                <FormControl onChange={passwordHandler} type="password" className="passwordInput m-auto" maxLength="60" placeholder="password" id="password" name="password" />
+                <h3 className="text-white shadow-box">Password</h3>
+                <FormControl onChange={passwordHandler} type="password" className="passwordInput m-auto" maxLength="60" placeholder="Password" id="password" name="password" />
                 <span id="passError"></span>
 
-                <h3>Confirm password</h3>
-                <FormControl onChange={confirmPassHandler} type="password" className="passwordInput m-auto" maxLength="60" placeholder="confirm password" name="passwordConf" />
+                <h3 className="text-white shadow-box">Confirm password</h3>
+                <FormControl onChange={confirmPassHandler} type="password" className="passwordInput m-auto" maxLength="60" placeholder="Confirm password" name="passwordConf" />
                 <span id="confPassError"></span>
 
                 <h3></h3>

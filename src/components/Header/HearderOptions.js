@@ -116,8 +116,7 @@ const HeaderOptions = () => {
 
         <Link
             to="/"
-            className="mr-3 text-infos"
-        >
+            className="mr-3 text-infos">
             <div className="">
                 <span className="header__optionsLineOne">Returns</span>< br />
                 <span className="header__optionsLineTwo">& Orders</span>
@@ -135,7 +134,7 @@ const HeaderOptions = () => {
         </Link>
 
         <Link
-            to="/"
+            to="/Checkout"
             className="mr-3 text-infos3"
             onClick={prevDef}>
             <i className="fa fa-shopping-basket basket-icon"></i>

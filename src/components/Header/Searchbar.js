@@ -13,12 +13,12 @@ const Searchbar = () => {
             <FormControl
                 type="text"
                 placeholder="Search"
-                className="pr-sm-2 w-100 search__field" />
+                className="pr-sm-2  search__field" />
 
             <Button
-                variant="outline-warning"
+                variant="warning"
+                className="glyphicon glyphicon-search search__button"
             >
-                Search
                 </Button>
 
         </Form>

@@ -6,6 +6,14 @@
     height:700px;
 }
 
+.backgrounds {
+    height: 800px;
+    background: url("https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg?cs=srgb&dl=pexels-lumn-167699.jpg&fm=jpg")fixed;
+    /*background-position-y: -300px;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .image-holder{
     margin-left:20px;
     height:500px;
@@ -28,6 +36,10 @@
 
 .registerForm {
     margin-top: 60px;
+}
+
+.register__link {
+    text-decoration: none!important;
 }
 
 @media only screen and (max-width: 768px) {

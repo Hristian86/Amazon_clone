@@ -3,12 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\AuthListener",
     "\\src\\components\\AuthO",
-    "\\src\\components\\Cards",
-    "\\src\\components\\ContextApi",
+    "\\src\\components\\Header",
+    "\\src\\components\\Products",
     "\\src\\Pages",
+    "\\src\\Pages\\Checkout",
     "\\src\\Pages\\Home"
   ],
-  "SelectedNode": "\\src\\components\\Navbars.js",
+  "SelectedNode": "\\src\\Pages\\Home\\Home2.js",
   "PreviewInSolutionExplorer": false
 }

@@ -2,8 +2,8 @@
 .header__options {
     display: flex;
     justify-content: space-evenly;
-    height: 58px;
-    width: 700px;
+    height: 58px!important;
+    width: 700px!important;
 }
 
 /*links in the header*/
@@ -32,7 +32,7 @@
     margin: auto;
     color: #fff !important;
     text-decoration: none !important;
-    width: 75px;
+    width: 55px!important;
 }
 
     /*link at the last spot*/
@@ -51,12 +51,26 @@
 }
 
 .header__optionsLineOne {
+    color: #808080;
     font-size: 13px;
 }
 
 .header__optionsLineTwo {
     font-size: 23px;
 }
+
+.search__field {
+    border: none;
+    margin:auto;
+    height: 47px!important;
+}
+
+.search__button {
+    margin-top: -1px;
+    height: 47px;
+    width: 60px;
+}
+
 
 @media only screen and (max-width: 900px) {
     .search__field {

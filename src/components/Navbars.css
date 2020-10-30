@@ -2,6 +2,7 @@
     background-color: #131921!important;
     display: flex;
     align-items:center;
+    opacity: 100;
 }
 
 .header__logo {

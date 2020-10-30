@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 import Register from './components/AuthO/Register';
 import Logout from './components/AuthO/Logout';
-import Home from './Pages/Home/Home';
+import Home2 from './Pages/Home/Home2';
 import Navbars from './components/Navbars';
 import { useState } from 'react';
 import { useStateValue } from './components/ContextApi/StateProvider';
@@ -23,6 +23,7 @@ import Login from './components/AuthO/LogIn';
 //import PrivateRoute from './components/Auth/PrivateRoute';
 import Footer from './components/Footer';
 import { CHEK_USER } from './components/ContextApi/Types';
+import Checkout from './Pages/Checkout/Checkout';
 
 const App = () => {
 
@@ -100,14 +101,18 @@ const App = () => {
                         <Route path="/AuthO/Logout">
                             <Logout />
                         </Route>
+                        <Route path="/Checkout">
+                            <Checkout />
+                        </Route>
+
 
                         <Route path="/">
-                            <Home />
+                            <Home2 />
                         </Route>
 
                         <Route path="*">
                             [/* To Do Not Found page*/]
-                            <Home />
+                            <Home2 />
                         </Route>
                     </Switch>
                     <Footer />

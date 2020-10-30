@@ -41,7 +41,7 @@ const Reducer = (state, action) => {
             };
             break;
         case REMOVE_ITEM_FROM_BASKET:
-            // get items from back end
+            // removing item from the basket
             return {
                 ...state,
                 basket: [...state.basket.filter(x => x.id !== action.removefromBasket.id)]
