@@ -1,0 +1,54 @@
+.log-out {
+    height:800px;
+}
+
+.loading {
+    height:700px;
+}
+
+.image-holder{
+    margin-left:20px;
+    height:500px;
+    width:500px;
+}
+
+.userInput, .passwordInput {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    margin-left:360px;
+    width: 400px !important;
+    height: 35px !important;
+    text-align: center!important;
+}
+
+.buttons {
+    height: 50px;
+    width: 398px;
+}
+
+.registerForm {
+    margin-top: 60px;
+}
+
+@media only screen and (max-width: 768px) {
+    .image-holder {
+        margin-left: 0px;
+        height: 350px;
+        width: 350px;
+    }
+
+    .userInput, .passwordInput {
+        margin-top: 8px;
+        margin:0px;
+        margin-bottom: 20px;
+        width: 350px !important;
+        height: 35px !important;
+        text-align: center;
+    }
+
+    .buttons {
+        height: 50px;
+        width: 350px;
+        margin-bottom:30px;
+    }
+}
