@@ -1,0 +1,22 @@
+.checkout > img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.checkout {
+    display: grid;
+    height: max-content;
+}
+
+.subtotal__container {
+    /*background-color: rgba(255,255,255,0.3);*/
+    /*background-color: #808080;*/
+    height: 100px;
+}
+
+.checkout__right {
+    /*margin-left: 75%;*/
+    margin: auto;
+    margin-top: 10px;
+    width: 25%;
+}

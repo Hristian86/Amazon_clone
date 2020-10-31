@@ -76,7 +76,9 @@ const HeaderOptions = () => {
     }
 
     return <div className="d-flex header__options">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" />
+
         {/*<Link
             to={state?.user ? "/" : "/AuthO/Register"} className="text-infos mr-3"
             onClick={() => prevDef}>

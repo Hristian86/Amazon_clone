@@ -42,10 +42,25 @@ const Reducer = (state, action) => {
             break;
         case REMOVE_ITEM_FROM_BASKET:
             // removing item from the basket
+
+            let newBasket = [...state.basket];
+            const index = state.basket.findIndex((basketItem) => basketItem.id === action.removefromBasket.id);
+            if (index >= 0) {
+                // removing existing id
+                newBasket.splice(index, 1);
+            } else {
+                alert("Product does not exist" + action.removefromBasket.id)
+            }
+
             return {
                 ...state,
-                basket: [...state.basket.filter(x => x.id !== action.removefromBasket.id)]
+                basket: newBasket
             };
+
+            //return {
+            //    ...state,
+            //    basket: [...state.basket.filter(x => x.id !== action.removefromBasket.id)]
+            //};
             break;
         case ADD_TO_BASKET:
             // adding items to basek
