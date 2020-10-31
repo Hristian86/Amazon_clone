@@ -19,7 +19,7 @@ const Searchbar = () => {
                 variant="warning"
                 className="glyphicon glyphicon-search search__button"
             >
-                <i class="fa fa-search"></i>
+                <i className="fa fa-search"></i>
                 </Button>
 
         </Form>

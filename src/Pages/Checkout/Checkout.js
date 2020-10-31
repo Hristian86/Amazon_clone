@@ -3,30 +3,34 @@ import './Checkout.css';
 import { useStateValue } from '../../components/ContextApi/StateProvider';
 import CheckoutProduct from '../../components/Products/CheckoutProduct';
 import SubtotalPrice from '../../components/Products/SubtotalPrice';
+import getCookie from '../../components/Cookies/GetCookie';
 
 const Checkout = () => {
-
-    const [{ basket }, dispatch] = useStateValue();
-
+    //const user = getCookie("user");
+    const [{user, basket }, dispatch] = useStateValue();
+    //window.scrollTo(0, 0);
     return <div className="container-fluid pl-0 pr-0 checkout">
 
         <img className="checkout__headerImage" src="https://www.zingoy.com/blog/wp-content/uploads/2020/06/Amazon-Banner-Desktop_qxuu8v.jpg" alt="." />
 
-
         <div className="row">
             {basket?.length === 0 ? (
                 <div className="empty__basket">
-                    <h4 className="ml-sm-5 empty__basket">
-                        Your Shoping basket is empty
+                    <h4 className="ml-sm-5 mt-3 empty__basket">
+                        {user[0]?.user?.user ?
+                            user[0]?.user?.user :
+                            "Guest"} Your Shoping basket is empty
                 </h4>
                     <p className="ml-sm-5 empty__basket">
-                        You have no items in your basket. To buy one or more, click "Add to basket" next to the item
+                        {user[0]?.user?.user ?
+                            user[0]?.user?.user :
+                            "Guest"} You have no items in your basket. To buy one or more, click "Add to basket" next to the item
                 </p>
                 </div>
             ) : (
                     <div className="ml-sm-5 ">
                         <h4 className="ml-sm-5 chekcout__title">
-                            Your Shoping basket
+                            {user[0]?.user?.user ? user[0]?.user?.user : "Guest"} Your Shoping basket
                     </h4>
                         <hr />
                         {basket.map(item => (

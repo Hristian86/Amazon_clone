@@ -22,8 +22,9 @@ import url from './components/BaseUrl/BaseUrl';
 import Login from './components/AuthO/LogIn';
 //import PrivateRoute from './components/Auth/PrivateRoute';
 import Footer from './components/Footer';
-import { CHEK_USER } from './components/ContextApi/Types';
+import { CHECK_USER } from './components/ContextApi/Types';
 import Checkout from './Pages/Checkout/Checkout';
+import Payment from './Pages/Payment/Payment';
 
 const App = () => {
 
@@ -58,9 +59,25 @@ const App = () => {
     }, []);
 
     const addUser = (user) => {
-        dispatch({
-            type: CHEK_USER,
+        const token = getCookie("token");
+        const email = getCookie("email");
+        const expiration = getCookie("expiration");
+
+        // alot of nesting
+        const userNest = {
             user: user,
+            token: token,
+            email: email,
+            expiration: expiration,
+        }
+
+        let userToAdd = {
+            user: userNest
+        }
+
+        dispatch({
+            type: CHECK_USER,
+            user: userToAdd,
         })
     }
 
@@ -92,19 +109,21 @@ const App = () => {
 
                     <Switch>
 
-                        <Route path="/AuthO/Register">
+                        <Route path="/authO/register">
                             <Register />
                         </Route>
-                        <Route path="/AuthO/LogIn">
+                        <Route path="/authO/logIn">
                             <Login />
                         </Route>
-                        <Route path="/AuthO/Logout">
+                        <Route path="/authO/logout">
                             <Logout />
                         </Route>
-                        <Route path="/Checkout">
+                        <Route path="/checkout">
                             <Checkout />
                         </Route>
-
+                        <Route path="/payment">
+                            <Payment />
+                        </Route>
 
                         <Route path="/">
                             <Home2 />

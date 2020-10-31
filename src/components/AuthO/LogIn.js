@@ -9,7 +9,7 @@ import LogInHandler from './LogInHandler';
 import setCookie from '../Cookies/SetCookie';
 import { useState } from 'react';
 import { useStateValue } from '../ContextApi/StateProvider';
-import { CHEK_USER } from '../ContextApi/Types';
+import { CHECK_USER } from '../ContextApi/Types';
 import { Link } from 'react-router-dom';
 
 const Login = (props) => {
@@ -22,7 +22,7 @@ const Login = (props) => {
     const contextUser = user;
     const addUser = (user) => {
         dispatch({
-            type: CHEK_USER,
+            type: CHECK_USER,
             user: {
                 user: user
             },
@@ -137,6 +137,8 @@ const Login = (props) => {
         }
     }
 
+    window.scrollTo(0, 0);
+
     return (<div>
         <div className="backgrounds">
             <h3 className="logo">Log in</h3>
@@ -178,7 +180,7 @@ const Login = (props) => {
                     />}
 
                     <Link
-                        to="/AuthO/Register"
+                        to="/authO/register"
                         className="mr-3 text-infos">
                         <div className="">
                             <span className="header__optionsLineOne">Dont have account </span>< br />

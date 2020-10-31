@@ -36,8 +36,8 @@ const Products = ({ id, title, image, price, rating }) => {
             <div className="product__rating">
                 {Array(rating)
                     .fill()
-                    .map((_) => (
-                        <p className="text-warning"><i class="fa fa-star"></i></p>
+                    .map((_, index) => (
+                        <p key={index} className="text-warning"><i className="fa fa-star"></i></p>
                     ))}
             </div>
         </div>

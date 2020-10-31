@@ -2,10 +2,11 @@ import React from 'react';
 import { useStateValue } from '../ContextApi/StateProvider';
 import './SubtotalPrice.css';
 import { getBasketTotal } from '../ContextApi/Reducer';
+import { useHistory } from 'react-router';
 
 const SubtotalPrice = () => {
     const [{ basket }, dispatch] = useStateValue();
-
+    const history = useHistory();
 
 
     return <div className="SubtotalPrice">
@@ -21,7 +22,7 @@ const SubtotalPrice = () => {
             <input type="checkbox" className="checkbox__style" />Promotion coupon
         </small>
         <div className="mt-3">
-            <button className="btn btn-danger">Procead to Checkout</button>
+            <button onClick={(e => history.push('/payment'))} className="btn btn-danger">Procead to Checkout</button>
         </div>
     </div>
 

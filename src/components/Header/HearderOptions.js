@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useStateValue } from '../ContextApi/StateProvider';
 import setCookie from '../Cookies/SetCookie';
 import getCookie from '../Cookies/GetCookie';
-import { REMOVE_USER, REMOVE_ITEM_FROM_BASKET } from '../ContextApi/Types';
+import { REMOVE_USER, REMOVE_ITEM_FROM_BASKET, CHECK_USER } from '../ContextApi/Types';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './header__options.css';
@@ -57,12 +57,22 @@ const HeaderOptions = () => {
         }
 
     }
+    
+    const addUser = (user) => {
+        dispatch({
+            type: CHECK_USER,
+            user: {
+                user: user
+            },
+        })
+    }
 
     useEffect(() => {
         setTimeout(() => {
             setState({
                 user: user[0] != undefined ? user[0].user : null
             });
+
         }, 200);
 
         retriveData();
@@ -86,7 +96,7 @@ const HeaderOptions = () => {
         </Link>*/}
 
         <Link
-            to={state?.user ? "/AuthO/Logout" : "/AuthO/Login"}
+            to={state?.user ? "/authO/logout" : "/authO/login"}
             className="mr-3 text-infos"
             onClick={logOutHandle}>
             {state.user ?
@@ -136,7 +146,7 @@ const HeaderOptions = () => {
         </Link>
 
         <Link
-            to="/Checkout"
+            to="/checkout"
             className="mr-3 text-infos3"
             onClick={prevDef}>
             <i className="fa fa-shopping-basket basket-icon"></i>

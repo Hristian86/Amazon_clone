@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET, REMOVE_ITEM_FROM_BASKET, GET_ITEMS, CHEK_USER, REMOVE_USER } from "./Types";
+import { ADD_TO_BASKET, REMOVE_ITEM_FROM_BASKET, GET_ITEMS, CHECK_USER, REMOVE_USER } from "./Types";
 
 // initail state of the app
 
@@ -30,7 +30,7 @@ const Reducer = (state, action) => {
                 user: [...state.user.filter(i => i.user == "remove user :0")]
             };
             break;
-        case CHEK_USER:
+        case CHECK_USER:
             // get user here
             return {
                 ...state,

@@ -148,6 +148,8 @@ const Register = () => {
         }
     }
 
+    window.scrollTo(0, 0);
+
     return <div className="backgrounds">
         <h3 className="logo">Register</h3>
 
