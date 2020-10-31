@@ -24,8 +24,8 @@ const Checkout = () => {
                 </p>
                 </div>
             ) : (
-                    <div className="">
-                        <h4 className="chekcout__title">
+                    <div className="ml-sm-5 ">
+                        <h4 className="ml-sm-5 chekcout__title">
                             Your Shoping basket
                     </h4>
                         <hr />
@@ -44,7 +44,7 @@ const Checkout = () => {
                 )}
 
             {basket?.length > 0 && (
-                <div className="checkout__right text-left text-white shadow-box">
+                <div className="checkout__right m-md-auto text-left text-white shadow-box col-2">
                     <h3 className="subtotal__container pl-sm-3">
                         <SubtotalPrice />
                 </h3>

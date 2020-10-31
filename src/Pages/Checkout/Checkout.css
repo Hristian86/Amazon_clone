@@ -15,12 +15,16 @@
 .subtotal__container {
     /*background-color: rgba(255,255,255,0.3);*/
     /*background-color: #808080;*/
-    height: 100px;
+    height: 220px;
+    background-color: rgba(0,0,0,0.3);
+    width: 370px;
+    padding-left: 15px;
 }
 
 .checkout__right {
     /*margin-left: 75%;*/
-    margin: auto;
+    /*margin: auto;*/
     margin-top: 10px;
     width: 25%;
+    margin-top: 20px!important;
 }

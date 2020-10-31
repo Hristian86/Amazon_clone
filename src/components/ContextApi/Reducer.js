@@ -15,6 +15,10 @@ const removeReducer = (state) => {
     return newState
 }
 
+export const getBasketTotal = (basket) =>
+    basket?.reduce((amount, item) =>
+        item.price + amount, 0);
+
 const Reducer = (state, action) => {
     //console.log(action);
     switch (action.type) {
@@ -23,7 +27,7 @@ const Reducer = (state, action) => {
             console.log(state);
             return {
                 ...state,
-                user: [...state.user.filter(i => i.user == "asd")]
+                user: [...state.user.filter(i => i.user == "remove user :0")]
             };
             break;
         case CHEK_USER:

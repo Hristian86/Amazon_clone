@@ -8,7 +8,7 @@ import HeaderOptions from './Header/HearderOptions';
 
 const Navbars = () => {
 
-    return <Navbar bg="light" className="d-flex header mb-0" expand="lg">
+    return <Navbar bg="light" className="d-flex sticky-top header mb-0" expand="lg">
 
         <Link
             to="/">
