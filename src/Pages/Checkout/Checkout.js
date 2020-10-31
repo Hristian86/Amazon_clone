@@ -15,16 +15,16 @@ const Checkout = () => {
 
         <div className="row">
             {basket?.length === 0 ? (
-                <div>
-                    <h4 className="ml-sm-5">
+                <div className="empty__basket">
+                    <h4 className="ml-sm-5 empty__basket">
                         Your Shoping basket is empty
                 </h4>
-                    <p className="ml-sm-5">
+                    <p className="ml-sm-5 empty__basket">
                         You have no items in your basket. To buy one or more, click "Add to basket" next to the item
                 </p>
                 </div>
             ) : (
-                    <div className="ml-sm-5">
+                    <div className="">
                         <h4 className="chekcout__title">
                             Your Shoping basket
                     </h4>
