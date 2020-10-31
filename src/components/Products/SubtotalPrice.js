@@ -8,6 +8,10 @@ const SubtotalPrice = () => {
     const [{ basket }, dispatch] = useStateValue();
     const history = useHistory();
 
+    const upPage = () => {
+        window.scrollTo(0, 0);
+        history.push('/payment');
+    }
 
     return <div className="SubtotalPrice">
 
@@ -22,7 +26,7 @@ const SubtotalPrice = () => {
             <input type="checkbox" className="checkbox__style" />Promotion coupon
         </small>
         <div className="mt-3">
-            <button onClick={(e => history.push('/payment'))} className="btn btn-danger">Procead to Checkout</button>
+            <button onClick={upPage} className="btn btn-danger">Procead to Checkout</button>
         </div>
     </div>
 

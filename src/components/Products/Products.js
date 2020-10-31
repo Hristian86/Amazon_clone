@@ -1,15 +1,22 @@
 import React from 'react';
 import './Products.css';
 import { useStateValue } from '../ContextApi/StateProvider';
+import { useAlert } from 'react-alert';
+import AlertProductComponent from './AlertProductcomponent';
 
 const Products = ({ id, title, image, price, rating }) => {
 
     const [{ basket }, dispatch] = useStateValue();
+    const alert = useAlert();
+    
     const addToBasket = () => {
-
+        
         const checkBasketForRepeatence = basket.filter(data => data.id == id);
 
         if (checkBasketForRepeatence[0] === undefined) {
+
+            alert.show(<AlertProductComponent image={image} title={title} message={"Added to the basket"} />);
+
             dispatch({
                 type: 'ADD_TO_BASKET',
                 items: {
@@ -20,6 +27,8 @@ const Products = ({ id, title, image, price, rating }) => {
                     rating: rating,
                 },
             })
+        } else {
+            alert.show(<AlertProductComponent message={"Item already in the basket"} />);
         }
     }
 

@@ -28,3 +28,16 @@
     width: 25%;
     margin-top: 20px!important;
 }
+
+@media only screen and (max-width: 1300px) {
+
+    /*.subtotal__container {
+        display: flex;
+        flex-direction: column;
+        height: 220px;
+        background-color: rgba(0,0,0,0.3);
+        width: 370px;
+        padding-left: 15px;
+    }*/
+
+}

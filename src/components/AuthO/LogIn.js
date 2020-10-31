@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { useStateValue } from '../ContextApi/StateProvider';
 import { CHECK_USER } from '../ContextApi/Types';
 import { Link } from 'react-router-dom';
+import { upPage } from '../UpPage/Uppage';
 
 const Login = (props) => {
     const history = useHistory();
@@ -136,9 +137,7 @@ const Login = (props) => {
             setPasswordState(password);
         }
     }
-
-    window.scrollTo(0, 0);
-
+    
     return (<div>
         <div className="backgrounds">
             <h3 className="logo">Log in</h3>
@@ -190,7 +189,7 @@ const Login = (props) => {
 
                 </form>
 
-                
+
 
                 <div className="spacer"></div>
             </div>

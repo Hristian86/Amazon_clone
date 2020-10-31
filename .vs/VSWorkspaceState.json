@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\AuthListener",
-    "\\src\\components\\AuthO",
+    "\\src\\components\\Cards",
+    "\\src\\components\\Cookies",
     "\\src\\components\\Header",
-    "\\src\\components\\Products",
+    "\\src\\components\\HearthStoneCards",
+    "\\src\\components\\UpPage",
     "\\src\\Pages",
-    "\\src\\Pages\\Checkout",
-    "\\src\\Pages\\Home"
+    "\\src\\Pages\\Payment"
   ],
-  "SelectedNode": "\\src\\Pages\\Home\\Home2.js",
+  "SelectedNode": "\\src\\components\\Products\\CheckoutProduct.js",
   "PreviewInSolutionExplorer": false
 }

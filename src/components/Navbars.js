@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom';
 import './Navbars.css';
 import Searchbar from './Header/Searchbar';
 import HeaderOptions from './Header/HearderOptions';
+import { upPage } from './UpPage/Uppage';
 
 const Navbars = () => {
 
     return <Navbar bg="light" className="d-flex sticky-top header mb-0" expand="lg">
 
         <Link
+            onClick={upPage}
             to="/">
             <img
                 className="header__logo text-left"

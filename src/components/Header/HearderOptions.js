@@ -7,6 +7,7 @@ import { REMOVE_USER, REMOVE_ITEM_FROM_BASKET, CHECK_USER } from '../ContextApi/
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './header__options.css';
+import { upPage } from '../UpPage/Uppage';
 
 const HeaderOptions = () => {
 
@@ -27,6 +28,7 @@ const HeaderOptions = () => {
     }
 
     const logOutHandle = () => {
+        upPage();
         setCookie('email', null, -1);
         setCookie("user", null, -1);
         setCookie("token", null, -1);
@@ -80,6 +82,7 @@ const HeaderOptions = () => {
     }, [user])
 
     const prevDef = () => {
+        upPage();
         console.log(store);
         console.log(state?.user?.user);
         console.log(state?.user?.user);
@@ -127,6 +130,7 @@ const HeaderOptions = () => {
         </Link>
 
         <Link
+            onClick={upPage}
             to="/"
             className="mr-3 text-infos">
             <div className="">
@@ -136,6 +140,7 @@ const HeaderOptions = () => {
         </Link>
 
         <Link
+            onClick={upPage}
             to="/"
             className="mr-3 text-infos2"
         >

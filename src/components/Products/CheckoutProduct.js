@@ -2,11 +2,15 @@ import React from 'react';
 import './ChaeckoutProduct.css';
 import { useStateValue } from '../ContextApi/StateProvider';
 import { REMOVE_ITEM_FROM_BASKET } from '../ContextApi/Types';
+import { useAlert } from 'react-alert';
+import AlertProductComponent from './AlertProductcomponent';
 
 const CheckoutProduct = ({ id, title, image, price, rating }) => {
     const [{ basket }, dispatch] = useStateValue();
-
+    const alert = useAlert();
+    
     const removefromBasket = () => {
+        alert.show(<AlertProductComponent image={image} title={title} message={" item removed from the basket"} />);
         console.log("removing");
         console.log(id);
         dispatch({

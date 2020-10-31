@@ -48,7 +48,7 @@ const Checkout = () => {
                 )}
 
             {basket?.length > 0 && (
-                <div className="checkout__right m-md-auto text-left text-white shadow-box col-2">
+                <div className="checkout__right m-md-auto text-left text-white shadow-box col-4">
                     <h3 className="subtotal__container pl-sm-3">
                         <SubtotalPrice />
                 </h3>
