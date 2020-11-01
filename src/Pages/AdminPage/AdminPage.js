@@ -19,6 +19,7 @@ const AdminPage = () => {
         setState({
             procesing: true
         });
+        let error = document.getElementById('errors');
         e.preventDefault();
         let errorNotSendEmail = document.getElementById('notSendEmailError');
 
@@ -48,6 +49,18 @@ const AdminPage = () => {
                             success: true
                         });
                         errorNotSendEmail.innerHTML = null;
+                    } else if (result.errors) {
+                        setState({
+                            buttonPushed: false
+                        });
+                        error.innerHTML = "";
+
+                        let arrayOfErrors = Object.values(result.errors);
+
+                        arrayOfErrors.forEach((item, index) => {
+                            error.innerHTML += item + "<br />";
+                        });
+
                     } else {
                         alert(isCreated);
                         setState({

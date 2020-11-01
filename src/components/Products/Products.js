@@ -3,14 +3,17 @@ import './Products.css';
 import { useStateValue } from '../ContextApi/StateProvider';
 import { useAlert } from 'react-alert';
 import AlertProductComponent from './AlertProductcomponent';
+import { Redirect, useHistory } from 'react-router';
+import { upPage } from '../UpPage/Uppage';
 
-const Products = ({ id, title, image, price, rating }) => {
+const Products = ({ id, title, image, price, rating, data, index, productsCount }) => {
+    const history = useHistory();
 
     const [{ basket }, dispatch] = useStateValue();
     const alert = useAlert();
-    
+
     const addToBasket = () => {
-        
+
         const checkBasketForRepeatence = basket.filter(data => data.id == id);
 
         if (checkBasketForRepeatence[0] === undefined) {
@@ -32,31 +35,88 @@ const Products = ({ id, title, image, price, rating }) => {
         }
     }
 
-    return <div className="product col">
+    const viewCategories = () => {
+        //return <Redirect to="/categories" />
+        upPage();
+        history.push(`/categories/${index}`);
+    }
 
-        <div className="product__info">
-            <h5>
-                <p>{title}</p>
-                <p className="product__price">
-                    <small>&euro;</small>
-                    <strong>{price}</strong>
-                </p>
-            </h5>
-            <div className="product__rating">
-                {Array(rating)
-                    .fill()
-                    .map((_, index) => (
-                        <p key={index} className="text-warning"><i className="fa fa-star"></i></p>
-                    ))}
+    if (price > 0) {
+
+        return <div className="product col">
+
+            <div className="product__info">
+                <h5>
+                    <p>{title}</p>
+                    {price ? <p className="product__price">
+                        <small>&euro;</small>
+                        <strong>{price}</strong>
+                    </p> : null}
+                </h5>
+                <div className="product__rating">
+                    {Array(rating)
+                        .fill()
+                        .map((_, index) => (
+                            <p key={index} className="text-warning"><i className="fa fa-star"></i></p>
+                        ))}
+                </div>
             </div>
+
+            <img src={image} alt="." />
+
+            {/* nesting for the products*/}
+            {!price ?
+                <div>
+                    <div className="button__holder">
+                        <button onClick={viewCategories} className="btn button__addToNasket m-auto">View {title}</button>
+                    </div>
+                </div> :
+                null}
+
+            {price ? <div className="button__holder">
+                <button onClick={addToBasket} className="btn button__addToNasket m-auto">Add to basket</button>
+            </div> : null}
         </div>
 
-        <img src={image} alt="." />
+    } else {
 
-        <div className="button__holder">
-            <button onClick={addToBasket} className="btn button__addToNasket m-auto">Add to basket</button>
+        return <div onClick={viewCategories}  className="product col">
+
+            <div className="product__info">
+                <h5>
+                    <p>{title}</p>
+                    <small>products </small>
+                    <strong>{productsCount}</strong>
+                    {price ? <p className="product__price">
+                        <small>&euro;</small>
+                        <strong>{price}</strong>
+                    </p> : null}
+                </h5>
+                <div className="product__rating">
+                    {Array(rating)
+                        .fill()
+                        .map((_, index) => (
+                            <p key={index} className="text-warning"><i className="fa fa-star"></i></p>
+                        ))}
+                </div>
+            </div>
+
+            <img src={image} alt="." />
+
+            {/* nesting for the products*/}
+            {!price ?
+                <div>
+                    <div className="button__holder">
+                        <button onClick={viewCategories} className="btn button__addToNasket m-auto">View {title}</button>
+                    </div>
+                </div> :
+                null}
+
+            {price ? <div className="button__holder">
+                <button onClick={addToBasket} className="btn button__addToNasket m-auto">Add to basket</button>
+            </div> : null}
         </div>
-    </div>
+    }
 }
 
 export default Products;

@@ -57,8 +57,6 @@ const Login = (props) => {
 
                 let user = await LogInHandler(payload);
 
-                console.log(user);
-
                 if (user.email && user.token) {
                     // Adding user to the store
                     addUser(user);
@@ -77,6 +75,18 @@ const Login = (props) => {
                         history.push('/');
                         //window.location.reload(false);
                     }, 700);
+                } else if (user.errors) {
+                    setState({
+                        buttonPushed: false
+                    });
+                    error.innerHTML = "";
+
+                    let arrayOfErrors = Object.values(user.errors);
+
+                    arrayOfErrors.forEach((item, index) => {
+                        error.innerHTML += item + "<br />";
+                    });
+
                 } else {
                     setState({
                         buttonPresed: false
@@ -138,7 +148,7 @@ const Login = (props) => {
             setPasswordState(password);
         }
     }
-    
+
     return (<div>
         <div className="backgrounds">
             <h3 className="logo">Log in</h3>

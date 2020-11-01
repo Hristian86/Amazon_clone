@@ -22,10 +22,12 @@ import url from './components/BaseUrl/BaseUrl';
 import Login from './components/AuthO/LogIn';
 //import PrivateRoute from './components/Auth/PrivateRoute';
 import Footer from './components/Footer';
-import { CHECK_USER } from './components/ContextApi/Types';
+import { CHECK_USER, GET_ITEMS } from './components/ContextApi/Types';
 import Checkout from './Pages/Checkout/Checkout';
 import Payment from './Pages/Payment/Payment';
 import AdminPage from './Pages/AdminPage/AdminPage';
+import FetchData from './components/AuthListener/FetchData';
+import Categories from './Pages/Categories/Categories';
 
 const App = () => {
 
@@ -46,13 +48,22 @@ const App = () => {
         }
     }
 
+    const fetchDataFromApi = (data) => {
+        console.log("fetching...");
+        dispatch({
+            type: GET_ITEMS,
+            fetcheData: {
+                items: data
+            },
+        });
+    }
+
     useEffect(() => {
         const getData = async () => {
             const result = await authListener("categoriesApi");
             if (result) {
-                setState1({
-                    data: result
-                });
+
+                fetchDataFromApi(result);
             }
         }
         getData();
@@ -83,19 +94,7 @@ const App = () => {
     }
 
     const authListener = async (apiController) => {
-        const token = getCookie('token');
-        const result = await fetch(url(apiController),
-            {
-                "headers": {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                }
-            }
-        )
-            .then(data => data.json())
-            .catch(err => console.log(err));
-
+        const result = await FetchData(apiController, null, "GET");
         return result;
     }
 
@@ -127,6 +126,9 @@ const App = () => {
                         </Route>
                         <Route path="/adminpage">
                             <AdminPage />
+                        </Route>
+                        <Route path="/categories/:id">
+                            <Categories />
                         </Route>
 
                         <Route path="/">

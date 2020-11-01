@@ -5,7 +5,7 @@ import { ADD_TO_BASKET, REMOVE_ITEM_FROM_BASKET, GET_ITEMS, CHECK_USER, REMOVE_U
 export const initialState = {
     basket: [],
     user: [],
-    FetchData: [],
+    fetchData: [],
 };
 
 const removeReducer = (state) => {
@@ -41,7 +41,7 @@ const Reducer = (state, action) => {
             // get items from back end
             return {
                 ...state,
-                FetchData: [...state.FetchData, action.items]
+                fetchData: [...state.fetchData, action.fetcheData.items]
             };
             break;
         case REMOVE_ITEM_FROM_BASKET:

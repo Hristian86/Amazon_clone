@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\AuthListener",
-    "\\src\\components\\BaseUrl",
-    "\\src\\components\\UpPage",
-    "\\src\\components\\Validate",
+    "\\src\\components\\AuthO",
+    "\\src\\components\\ContextApi",
+    "\\src\\components\\Header",
+    "\\src\\components\\Products",
     "\\src\\Pages",
-    "\\src\\Pages\\AdminPage",
-    "\\src\\Pages\\Payment"
+    "\\src\\Pages\\Categories",
+    "\\src\\Pages\\Home"
   ],
-  "SelectedNode": "\\src\\components\\AuthListener\\FetchData.js",
+  "SelectedNode": "\\src\\components\\Products\\Products.js",
   "PreviewInSolutionExplorer": false
 }
