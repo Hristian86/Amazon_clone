@@ -6,9 +6,10 @@ import CheckoutProduct from '../../components/Products/CheckoutProduct';
 const Payment = () => {
     const [{ user, basket }, dispatch] = useStateValue();
 
-    return <div className="payment">
+    return <div className="payment container">
         <div className="payment__container">
-            <div className="payment__section">
+
+            <div className="payment__section pl-sm-5">
                 <div className="payment__title">
                     <h3>Delivery Address</h3>
                 </div>
@@ -23,7 +24,8 @@ const Payment = () => {
 
             <hr />
 
-            <div className="payment__section">
+            <div className="payment__section pl-sm-5">
+
                 <div className="payment__title">
                     <h3>Review items and delivery</h3>
                 </div>
@@ -43,7 +45,8 @@ const Payment = () => {
 
             <hr />
 
-            <div className="payment__section">
+            <div className="payment__section pl-sm-5">
+
                 <div className="payment__title">
                     <h3>Payment method</h3>
                 </div>

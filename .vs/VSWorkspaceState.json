@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\Cards",
-    "\\src\\components\\Cookies",
-    "\\src\\components\\Header",
-    "\\src\\components\\HearthStoneCards",
+    "\\src\\components\\AuthListener",
+    "\\src\\components\\BaseUrl",
     "\\src\\components\\UpPage",
+    "\\src\\components\\Validate",
     "\\src\\Pages",
+    "\\src\\Pages\\AdminPage",
     "\\src\\Pages\\Payment"
   ],
-  "SelectedNode": "\\src\\components\\Products\\CheckoutProduct.js",
+  "SelectedNode": "\\src\\components\\AuthListener\\FetchData.js",
   "PreviewInSolutionExplorer": false
 }

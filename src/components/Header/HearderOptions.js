@@ -8,6 +8,7 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './header__options.css';
 import { upPage } from '../UpPage/Uppage';
+import FetchData from '../AuthListener/FetchData';
 
 const HeaderOptions = () => {
 
@@ -81,7 +82,11 @@ const HeaderOptions = () => {
 
     }, [user])
 
-    const prevDef = () => {
+    const prevDef = async () => {
+
+        const res = await FetchData('testapi', user, 'POST');
+
+
         upPage();
         console.log(store);
         console.log(state?.user?.user);

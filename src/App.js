@@ -25,6 +25,7 @@ import Footer from './components/Footer';
 import { CHECK_USER } from './components/ContextApi/Types';
 import Checkout from './Pages/Checkout/Checkout';
 import Payment from './Pages/Payment/Payment';
+import AdminPage from './Pages/AdminPage/AdminPage';
 
 const App = () => {
 
@@ -112,7 +113,7 @@ const App = () => {
                         <Route path="/authO/register">
                             <Register />
                         </Route>
-                        <Route path="/authO/logIn">
+                        <Route path="/authO/login">
                             <Login />
                         </Route>
                         <Route path="/authO/logout">
@@ -123,6 +124,9 @@ const App = () => {
                         </Route>
                         <Route path="/payment">
                             <Payment />
+                        </Route>
+                        <Route path="/adminpage">
+                            <AdminPage />
                         </Route>
 
                         <Route path="/">

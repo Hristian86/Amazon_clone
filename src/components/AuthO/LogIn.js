@@ -57,7 +57,7 @@ const Login = (props) => {
 
                 let user = await LogInHandler(payload);
 
-                //console.log(user);
+                console.log(user);
 
                 if (user.email && user.token) {
                     // Adding user to the store
@@ -66,6 +66,7 @@ const Login = (props) => {
                     // Setting cookie user
                     user.user ? setCookieUser(user.user) :
                         setCookieUser(user.email);
+                    setCookie('XSRF-TOKEN', user.xsrfToken, 5);
                     setCookie('email', user.email, 5);
                     setCookieToken(user.token);
                     setCookie('expiration', user.expiration, 1);

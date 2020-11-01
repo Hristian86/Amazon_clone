@@ -29,7 +29,7 @@ const Register = () => {
             error.innerHTML = "";
             if (password === passwordConf) {
 
-                if (email.length > 5 && password.length > 5 && userName.length > 5) {
+                if (email.length > 5 && password.length > 5 && userName.length > 5 && userName < 14) {
                     error.innerHTML = "Procesing...";
 
                     let payload = {
@@ -118,6 +118,8 @@ const Register = () => {
         error.innerHTML = null;
         if (user.length < 6) {
             error.innerHTML = "User name length must be at least 6 symbols";
+        } else if (user.length > 13) {
+            error.innerHTML = "User can be max 13 symbols";
         } else {
             setState({
                 user: user
