@@ -2,6 +2,7 @@ import react from 'react';
 import getCookie from '../Cookies/GetCookie';
 import url from '../BaseUrl/BaseUrl';
 
+// fetch data from back with all crud operations
 const FetchData = async (apiController, payload, method) => {
     try {
         const XSRFToken = getCookie('XSRF-TOKEN');

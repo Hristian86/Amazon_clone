@@ -1,89 +1,50 @@
 import React from 'react';
-import Cards from '../../components/Cards/Cards';
-import getCookie from '../../components/Cookies/GetCookie';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { REMOVE_ITEM_FROM_BASKET } from '../../components/ContextApi/Types';
-import { useStateValue } from '../../components/ContextApi/StateProvider';
 import './Home.css';
 import Products from '../../components/Products/Products';
+import { useStateValue } from '../../components/ContextApi/StateProvider';
+import Loader from '../../components/Loader/Loader';
 
 const Home = () => {
-    
-    const [state, setState] = useState({});
-    const [{ user, basket }, dispatch] = useStateValue();
 
-    const checkingCookieUser = () => {
-        try {
-            const user = getCookie('user');
-            if (user) {
-                setState({
-                    user: user
-                });
-            } else {
-                setState({
-                    user: null
-                })
-            }
-        } catch (e) {
-            console.log(e);
-        }
+    const [{ fetchData }, dispatch] = useStateValue();
+
+    // Test for the context api store date
+    const showData = () => {
+        console.log(fetchData[0]);
     }
 
-    
-    const removefromBasket = () => {
-        console.log("removing");
-        dispatch({
-            type: REMOVE_ITEM_FROM_BASKET,
-            removefromBasket: {
-                id: 1
-            },
-        });
-    }
-
-    useEffect(() => {
-        checkingCookieUser();
-    }, [])
-
-    let array = [{
-        id: 1,
-        userName: "Prncho"
-    }, {
-        id: 2,
-        userName: "Go6o"
-    }]
-
-    return <div className="container-fluid pl-0 pr-0 pt-0 mt-0 home">
+    return <div className="home bg-light">
 
         <img className="home__image" src="/images/amazon_prime.jpg" alt="." />
 
-        {/* Products*/}
+        <div className="home__row row ml-sm-2 justify-content-center">
 
-        <Products
-            id="123123"
-            title="the product"
-            price={11.99}
-            rating={5}
-            image="https://cdn.pixabay.com/photo/2014/12/08/14/23/pocket-watch-560937_960_720.jpg"
-        />
+            {/*<button onClick={showData} >click</button>*/}
 
-        {/* {state?.user ?
-            <div className="row">
-                {array.map((data, index) =>
-                    (<Cards 
+            <div className="categories-info">
+                <h1 className="text-white shadow-box">
+                    Categories
+                </h1>
+            </div>
+
+            <div className="row justify-content-center">
+                {fetchData[0] === undefined ? <Loader /> : null}
+                {fetchData[0]?.map((data, index) => (
+                    <Products
+                        className="col-6"
+                        index={index}
                         key={data.id}
-                        userName={data.userName}
                         id={data.id}
-                    />)
-                )}
-                </div>
-            : <div
-                className="text-center load">
-                Not logged
-                </div>} 
-        
-        <button onClick={removefromBasket}>Remove item</button> */}
-        <div className="spacer"></div>
+                        title={data.name}
+                        price={0}
+                        data={data}
+                        rating={0}
+                        productsCount={data.productsCount}
+                        image={data.imageURL}
+                    />
+                ))}
+            </div>
+        </div>
     </div>
 }
 

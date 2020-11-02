@@ -32,7 +32,4 @@ const Navbars = () => {
 
 }
 
-
-
-
 export default Navbars;

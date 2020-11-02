@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FormControl } from 'react-bootstrap';
 import LogInSuccess from './LogInSuccess';
-import { Redirect, useHistory } from 'react-router';
+import { Redirect, useHistory, useParams } from 'react-router';
 import { setCookieToken, setCookieUser } from '../Cookies/SetCookie';
 import url from '../BaseUrl/BaseUrl';
 import './style.css';
@@ -31,6 +31,12 @@ const Login = (props) => {
     }
 
     const [state, setState] = useState({});
+    const [historyState, setHistoryState] = useState({
+        history: false,
+    });
+    let { payment } = useParams();
+
+    console.log(history.location);
 
     const loginFunc = async (e) => {
         setState({
@@ -71,10 +77,14 @@ const Login = (props) => {
                     //console.log(user);
                     error.innerHTML = "Success";
 
-                    setTimeout(function () {
-                        history.push('/');
-                        //window.location.reload(false);
-                    }, 700);
+                    if (payment === "payment") {
+                            history.goBack();
+                    } else {
+                        setTimeout(function () {
+                            history.push('/');
+                            //window.location.reload(false);
+                        }, 700);
+                    }
                 } else if (user.errors) {
                     setState({
                         buttonPushed: false
@@ -197,6 +207,15 @@ const Login = (props) => {
                             <span className="register__link text-white shadow-box">Create new account</span>
                         </div>
                     </Link>
+
+
+                    <a
+                        href={url("Identity/Account/ForgotPassword")}
+                        className="mr-3 text-infos">
+                        <div className="">
+                            <span className="register__link text-white shadow-box">Forgot your password?</span>
+                        </div>
+                    </a>
 
                 </form>
 

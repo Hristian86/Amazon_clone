@@ -6,9 +6,9 @@ import SubtotalPrice from '../../components/Products/SubtotalPrice';
 import getCookie from '../../components/Cookies/GetCookie';
 
 const Checkout = () => {
-    //const user = getCookie("user");
-    const [{user, basket }, dispatch] = useStateValue();
-    //window.scrollTo(0, 0);
+
+    const [{ user, basket }, dispatch] = useStateValue();
+
     return <div className="container-fluid pl-0 pr-0 checkout">
 
         <img className="checkout__headerImage" src="https://www.zingoy.com/blog/wp-content/uploads/2020/06/Amazon-Banner-Desktop_qxuu8v.jpg" alt="." />
@@ -51,7 +51,7 @@ const Checkout = () => {
                 <div className="checkout__right m-md-auto text-left text-white shadow-box col-4">
                     <h3 className="subtotal__container pl-sm-3">
                         <SubtotalPrice />
-                </h3>
+                    </h3>
                 </div>
             )}
 

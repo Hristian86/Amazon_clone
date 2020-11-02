@@ -9,13 +9,17 @@
     width: 100%;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     z-index: -1;
-    margin-bottom: -250px;
+    margin-bottom: -330px;
 }
 
 .home__row {
     display: flex;
     z-index: 1;
     width: 99%!important;
+}
+
+.categories-info {
+    margin-top: -140px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -26,5 +30,6 @@
 
     .home__row {
         display: grid;
+        max-width: 350px;
     }
 }

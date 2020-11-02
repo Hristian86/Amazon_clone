@@ -167,8 +167,7 @@ const AdminPage = () => {
         <div className="contact-left-letters text-center">
             <div className="contact-info-holder">
                 <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
-                <h2>Contact Us</h2>
-                <h4>We would love to hear from you !</h4>
+                <h2>Admin page</h2>
             </div>
         </div>
 

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Validate, { validateEmail } from '../../components/Validate/Validate';
 import './AdminPage.css';
 
-const AdminPage = () => {
+const Contact = () => {
 
     const [state, setState] = useState({
         success: false,
@@ -182,8 +182,6 @@ const AdminPage = () => {
         </form>
 
     </div>
-
-
 }
 
-export default AdminPage;
+export default Contact;

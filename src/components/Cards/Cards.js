@@ -3,6 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 import { useStateValue } from '../ContextApi/StateProvider';
 import { ADD_TO_BASKET } from '../ContextApi/Types';
 
+// dummy data for mocking
 const Cards = ({id, userName }) => {
 
     const [{ basket }, dispatch] = useStateValue();

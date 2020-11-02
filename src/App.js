@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 import Register from './components/AuthO/Register';
 import Logout from './components/AuthO/Logout';
-import Home2 from './Pages/Home/Home2';
+import Home from './Pages/Home/Home';
 import Navbars from './components/Navbars';
 import { useState } from 'react';
 import { useStateValue } from './components/ContextApi/StateProvider';
@@ -28,13 +28,18 @@ import Payment from './Pages/Payment/Payment';
 import AdminPage from './Pages/AdminPage/AdminPage';
 import FetchData from './components/AuthListener/FetchData';
 import Categories from './Pages/Categories/Categories';
+import NotFound from './Pages/NotFoundPage/NotFount';
 
 const App = () => {
 
     const [state, setState] = useState({});
+    const [categoryState, setCategoryState] = useState({
+        load: false
+    });
     const [state1, setState1] = useState({});
     const [{ fetchData, user }, dispatch] = useStateValue();
 
+    // Chekcing user cookies and create a user object in the context api store if it exists.
     const checkingCookieUser = () => {
         try {
             const user = getCookie('user');
@@ -48,34 +53,55 @@ const App = () => {
         }
     }
 
+    // Fetching categories data from back end.
     const fetchDataFromApi = (data) => {
         console.log("fetching...");
         dispatch({
             type: GET_ITEMS,
             fetcheData: {
-                items: data
+                items: data.categories
             },
         });
     }
 
+    let interval;
+    
     useEffect(() => {
         const getData = async () => {
-            const result = await authListener("categoriesApi");
+            const result = await dataListener("api/categoriesApi");
             if (result) {
-
+                const res = JSON.parse(result.geoLocation);
+                console.log(res);
+                setCategoryState({
+                    load: true
+                });
                 fetchDataFromApi(result);
+                //clearInterval(interval);
             }
         }
+
+        //if (!categoryState.load) {
+        //    console.log(categoryState);
+        //    interval = setInterval(() => {
+        //        if (!categoryState.load) {
+        //            getData();
+        //        } else {
+        //            clearInterval(interval);
+        //        }
+        //    }, 2000)
+        //}
+
         getData();
         checkingCookieUser();
     }, []);
 
+    // Adding user object to the context api store and his credentials in the cookies.
     const addUser = (user) => {
         const token = getCookie("token");
         const email = getCookie("email");
         const expiration = getCookie("expiration");
 
-        // alot of nesting
+        // Alot of nesting.
         const userNest = {
             user: user,
             token: token,
@@ -93,7 +119,8 @@ const App = () => {
         })
     }
 
-    const authListener = async (apiController) => {
+    
+    const dataListener = async (apiController) => {
         const result = await FetchData(apiController, null, "GET");
         return result;
     }
@@ -109,35 +136,39 @@ const App = () => {
 
                     <Switch>
 
-                        <Route path="/authO/register">
+                        <Route exact path="/authO/register">
                             <Register />
                         </Route>
-                        <Route path="/authO/login">
+                        <Route exact path="/authO/login/:payment?">
                             <Login />
                         </Route>
-                        <Route path="/authO/logout">
+                        <Route exact path="/authO/logout">
                             <Logout />
                         </Route>
-                        <Route path="/checkout">
+                        <Route exact path="/checkout">
                             <Checkout />
                         </Route>
-                        <Route path="/payment">
+                        <Route exact path="/payment">
                             <Payment />
                         </Route>
-                        <Route path="/adminpage">
+                        <Route exact path="/adminpage">
                             <AdminPage />
                         </Route>
-                        <Route path="/categories/:id">
+
+                        {/*<Route path="/categories/:id">
+                            <Categories />
+                        </Route>*/}
+
+                        <Route path="/categories/:name?/:id?">
                             <Categories />
                         </Route>
 
-                        <Route path="/">
-                            <Home2 />
+                        <Route exact path="/">
+                            <Home />
                         </Route>
 
                         <Route path="*">
-                            [/* To Do Not Found page*/]
-                            <Home2 />
+                            <NotFound />
                         </Route>
                     </Switch>
                     <Footer />

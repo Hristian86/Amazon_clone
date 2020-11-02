@@ -17,7 +17,7 @@ const HeaderOptions = () => {
     const [store, dispatch] = useStateValue();
     let user = store.user;
 
-
+    // Remove item from basket in the context api store
     const removefromBasket = () => {
         console.log("removing");
         dispatch({
@@ -28,6 +28,7 @@ const HeaderOptions = () => {
         });
     }
 
+    // Removing all cookies when logout
     const logOutHandle = () => {
         upPage();
         setCookie('email', null, -1);
@@ -43,6 +44,7 @@ const HeaderOptions = () => {
         });
     }
 
+    // Check the cookie for user if it exists then user is logged
     const retriveData = () => {
 
         const user = getCookie('user');
@@ -60,7 +62,8 @@ const HeaderOptions = () => {
         }
 
     }
-    
+
+    // After checking cookies, then adding user params to context api store
     const addUser = (user) => {
         dispatch({
             type: CHECK_USER,
@@ -70,6 +73,7 @@ const HeaderOptions = () => {
         })
     }
 
+    // checking if store is empty and setting state
     useEffect(() => {
         setTimeout(() => {
             setState({
@@ -78,14 +82,15 @@ const HeaderOptions = () => {
 
         }, 200);
 
+        // Initialize the check for user on landing the page
         retriveData();
 
     }, [user])
 
+    // test ground
     const prevDef = async () => {
 
         const res = await FetchData('testapi', user, 'POST');
-
 
         upPage();
         console.log(store);
@@ -97,14 +102,8 @@ const HeaderOptions = () => {
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" />
 
-        {/*<Link
-            to={state?.user ? "/" : "/AuthO/Register"} className="text-infos mr-3"
-            onClick={() => prevDef}>
-            {state.user?.user ? state.user.user + "'s management" : "Register"}
-        </Link>*/}
-
         <Link
-            to={state?.user ? "/authO/logout" : "/authO/login"}
+            to={state?.user ? "#" : "/authO/login"}
             className="mr-3 text-infos"
             onClick={logOutHandle}>
             {state.user ?
@@ -167,19 +166,6 @@ const HeaderOptions = () => {
 
             <span className="header__optionsLineTwo">{store?.basket?.length}</span>
         </Link>
-
-        {/*<Link
-            to="/"
-            className="mr-3 text-infos"
-            onClick={removefromBasket}>
-            removefromBasket
-        </Link>*/}
-
-        {/*<div
-            className="mr-3 text-infos"
-            onClick={prevDef}>
-            users in store {user?.length}
-        </div>*/}
 
     </div>
 }

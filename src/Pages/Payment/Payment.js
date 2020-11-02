@@ -2,9 +2,14 @@ import React from 'react';
 import './Payment.css';
 import { useStateValue } from '../../components/ContextApi/StateProvider';
 import CheckoutProduct from '../../components/Products/CheckoutProduct';
+import { useHistory } from 'react-router';
 
-const Payment = () => {
+const Payment = (props) => {
     const [{ user, basket }, dispatch] = useStateValue();
+    const history = useHistory();
+    if (!user[0]?.user?.email) {
+        history.push('/authO/login/payment');
+    }
 
     return <div className="payment container">
         <div className="payment__container">

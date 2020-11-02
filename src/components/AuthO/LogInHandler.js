@@ -6,7 +6,7 @@ const LogInHandler = async (payload) => {
 
     try {
 
-        const result = await fetch(url("logInApi"), {
+        const result = await fetch(url("api/logInApi"), {
             "method": "POST",
             "headers": {
                 'Accept': 'application/json',
