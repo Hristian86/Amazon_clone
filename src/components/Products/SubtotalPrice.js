@@ -22,7 +22,7 @@ const SubtotalPrice = () => {
             <small> &euro;</small>
 
             {/*Getting the amount for the items in the basket.*/}
-            <strong>{getBasketTotal(basket)}</strong>
+            <strong>{getBasketTotal(basket).toFixed(2)}</strong>
         </h2>
 
         < br />

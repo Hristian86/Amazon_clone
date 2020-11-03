@@ -8,7 +8,7 @@ const url = (parametar) => {
 
     if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
         // dev code
-        return aspDotNetCore + parametar;
+        return herokuDotNet + parametar;
     } else {
         // production code
         return herokuDotNet + parametar;

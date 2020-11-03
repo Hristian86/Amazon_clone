@@ -3,7 +3,7 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\AuthO",
+    "\\src\\components\\BaseUrl",
     "\\src\\components\\Products",
     "\\src\\Pages",
     "\\src\\Pages\\AdminPage",
@@ -11,6 +11,6 @@
     "\\src\\Pages\\Checkout",
     "\\src\\Pages\\Payment"
   ],
-  "SelectedNode": "\\src\\Pages\\Payment\\Payment.js",
+  "SelectedNode": "\\src\\components\\BaseUrl\\BaseUrl.js",
   "PreviewInSolutionExplorer": false
 }
