@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\BaseUrl",
-    "\\src\\components\\Loader",
+    "\\src\\components\\AuthO",
     "\\src\\components\\Products",
     "\\src\\Pages",
     "\\src\\Pages\\AdminPage",
     "\\src\\Pages\\Categories",
+    "\\src\\Pages\\Checkout",
     "\\src\\Pages\\Payment"
   ],
-  "SelectedNode": "\\src\\components\\Products\\Products.css",
+  "SelectedNode": "\\src\\Pages\\Payment\\Payment.js",
   "PreviewInSolutionExplorer": false
 }

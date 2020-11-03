@@ -35,7 +35,8 @@ const Payment = (props) => {
                     <h3>Review items and delivery</h3>
                 </div>
                 <div className="payment__items">
-                    {basket.map(item => (
+                    {basket.map((item, index) => (
+                        <div key={item.id}>
                         <CheckoutProduct
                             key={item.id}
                             id={item.id}
@@ -43,7 +44,9 @@ const Payment = (props) => {
                             image={item.image}
                             price={item.price}
                             rating={item.rating}
-                        />
+                            />
+                            {basket.length - 1 === index ? null : <hr />}
+                            </div>
                     ))}
                 </div>
             </div>

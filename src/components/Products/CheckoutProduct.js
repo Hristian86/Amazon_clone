@@ -62,8 +62,8 @@ const CheckoutProduct = ({ id, title, image, price, rating }) => {
             </div>
             
             {state?.loading ? <Loader /> : <button onClick={removefromBasket} className="btn button__remove m-auto btn-warning">remove from basket</button>}
+            
         </div>
-
     </div>
 
 }

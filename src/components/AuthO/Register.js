@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
 import { FormControl } from 'react-bootstrap';
 import { useHistory } from 'react-router';
-import { setCookieUser, setCookieToken } from '../Cookies/SetCookie';
+import setCookie, { setCookieUser, setCookieToken } from '../Cookies/SetCookie';
 import url from '../BaseUrl/BaseUrl';
 import './style.css';
 import RegAuth from './RegAuth';
 //import { validateEmail } from '../Contact/Validate';
 import style from './style.module.css';
 import { useState } from 'react';
+import { useStateValue } from '../ContextApi/StateProvider';
+import { CHECK_USER } from '../ContextApi/Types';
 
 const Register = () => {
     const [state, setState] = useState({});
     const history = useHistory();
+    const [{ user }, dispatch] = useStateValue();
+    //console.log(user);
+    const addUser = (user) => {
+        dispatch({
+            type: CHECK_USER,
+            user: {
+                user: user
+            },
+        })
+    }
 
     const signUpFunc = async (e) => {
         setState({
@@ -23,13 +35,13 @@ const Register = () => {
         const userName = e.target.userName.value;
         const password = e.target.password.value;
         const passwordConf = e.target.passwordConf.value;
-
+        debugger
         try {
 
             error.innerHTML = "";
             if (password === passwordConf) {
 
-                if (email.length > 5 && password.length > 5 && userName.length > 5 && userName < 14) {
+                if (email.length > 5 && password.length > 5 && userName.length > 3 && userName.length <= 14) {
                     error.innerHTML = "Procesing...";
 
                     let payload = {
@@ -39,6 +51,7 @@ const Register = () => {
                     }
 
                     const result = await RegAuth(payload);
+                    const user = result;
 
                     if (result.error) {
                         error.innerHTML = "This email is already taken";
@@ -51,16 +64,25 @@ const Register = () => {
                             buttonPushed: false
                         });
                         error.innerHTML = "";
-
+                        
                         let arrayOfErrors = Object.values(result.errors);
 
                         arrayOfErrors.forEach((item, index) => {
                             error.innerHTML += item + "<br />";
                         });
 
-                    } else {
-                        //setCookieUser(result.email);
-                        //setCookieToken(result.token);
+                    } else if (user.email && user.token) {
+                        // Adding user to the store
+                        addUser(user);
+
+                        // Setting cookie user
+                        user.user ? setCookieUser(user.user) :
+                            setCookieUser(user.email);
+                        setCookie('XSRF-TOKEN', user.xsrfToken, 5);
+                        setCookie('email', user.email, 5);
+                        setCookieToken(user.token);
+                        setCookie('expiration', user.expiration, 1);
+                        //console.log(user);
                         error.innerHTML = "Account created suceesfully";
 
                         setTimeout(function () {
@@ -85,6 +107,11 @@ const Register = () => {
                             buttonPushed: false
                         });
                         error.innerHTML = "User name must be at least 6 symbols";
+                    } else {
+                        error.innerHTML = "Validation error";
+                        setState({
+                            buttonPushed: false
+                        });
                     }
                 }
 
@@ -116,8 +143,8 @@ const Register = () => {
         const user = e.target.value;
         const error = document.getElementById('userError');
         error.innerHTML = null;
-        if (user.length < 6) {
-            error.innerHTML = "User name length must be at least 6 symbols";
+        if (user.length < 3) {
+            error.innerHTML = "User name length must be at least 3 symbols";
         } else if (user.length > 13) {
             error.innerHTML = "User can be max 13 symbols";
         } else {

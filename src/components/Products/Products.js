@@ -62,11 +62,11 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount 
     // Mapping products
     if (price > 0) {
 
-        return <div className="product col">
+        return <div className="product col-4">
 
             <div className="product__info">
                 <h5>
-                    <p>{title}</p>
+                    <p className="product__title">{title}</p>
                     <p className="product__price">
                         <small>&euro;</small>
                         <strong>{price}</strong>

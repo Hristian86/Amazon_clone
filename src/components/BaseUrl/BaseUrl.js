@@ -4,7 +4,7 @@ const url = (parametar) => {
     const asdKestrel = "https://localhost:5001/api/RegisterCodeModels";
     const aspDotNetCore = "https://localhost:44318/"
 
-    const herokuDotNet = "https://react-back-end-serv2.herokuapp.com/";
+    const herokuDotNet = "https://amazion.herokuapp.com";
 
     if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
         // dev code

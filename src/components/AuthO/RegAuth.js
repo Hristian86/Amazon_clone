@@ -3,7 +3,6 @@ import url from '../BaseUrl/BaseUrl';
 
 const RegAuth = async (payload) => {
     try {
-
         const result = await fetch(url("api/registerApi"), {
             "method": "POST",
             "headers": {
