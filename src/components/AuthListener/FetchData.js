@@ -21,7 +21,17 @@ const FetchData = async (apiController, payload, method) => {
                     'X-XSRF-TOKEN': XSRFToken,
                 }, body: JSON.stringify(payload)
             };
-        } else {
+        } else if(method === "GET") {
+            second_parametar = {
+                "method": `${method}`,
+                "headers": {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'X-XSRF-TOKEN': XSRFToken,
+                }
+            };
+        } else if (method === "FORGERY") {
             second_parametar = {
                 "method": `${method}`,
                 "headers": {

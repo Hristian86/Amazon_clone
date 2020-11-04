@@ -12,6 +12,7 @@ import { useStateValue } from '../ContextApi/StateProvider';
 import { CHECK_USER } from '../ContextApi/Types';
 import { Link } from 'react-router-dom';
 import { upPage } from '../UpPage/Uppage';
+import FetchData from '../AuthListener/FetchData';
 
 const Login = (props) => {
     const history = useHistory();
@@ -64,21 +65,26 @@ const Login = (props) => {
                 let user = await LogInHandler(payload);
 
                 if (user.email && user.token) {
+
+
                     // Adding user to the store
                     addUser(user);
 
                     // Setting cookie user
                     user.user ? setCookieUser(user.user) :
                         setCookieUser(user.email);
-                    setCookie('XSRF-TOKEN', user.xsrfToken, 5);
                     setCookie('email', user.email, 5);
                     setCookieToken(user.token);
                     setCookie('expiration', user.expiration, 1);
                     //console.log(user);
+                    const forgery = await FetchData("api/antiForgery", null, "GET");
+                    if (await forgery) {
+                        setCookie('XSRF-TOKEN', forgery.cookieToken, 5);
+                    }
                     error.innerHTML = "Success";
 
                     if (payment === "payment") {
-                            history.goBack();
+                        history.goBack();
                     } else {
                         setTimeout(function () {
                             history.push('/');

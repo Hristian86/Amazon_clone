@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\BaseUrl",
-    "\\src\\components\\Products",
+    "\\src\\components\\AuthListener",
+    "\\src\\components\\AuthO",
+    "\\src\\components\\Cookies",
+    "\\src\\components\\ValidateCrossScripting",
     "\\src\\Pages",
-    "\\src\\Pages\\AdminPage",
-    "\\src\\Pages\\Categories",
-    "\\src\\Pages\\Checkout",
+    "\\src\\Pages\\Home",
     "\\src\\Pages\\Payment"
   ],
-  "SelectedNode": "\\src\\components\\BaseUrl\\BaseUrl.js",
+  "SelectedNode": "\\src\\Pages\\Home\\Home.js",
   "PreviewInSolutionExplorer": false
 }

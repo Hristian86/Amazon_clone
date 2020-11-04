@@ -3,6 +3,8 @@ import './Home.css';
 import Products from '../../components/Products/Products';
 import { useStateValue } from '../../components/ContextApi/StateProvider';
 import Loader from '../../components/Loader/Loader';
+import FetchData from '../../components/AuthListener/FetchData';
+import CrossScript from '../../components/ValidateCrossScripting/CrossScrit';
 
 const Home = () => {
 
@@ -13,19 +15,29 @@ const Home = () => {
         console.log(fetchData[0]);
     }
 
+    // Some tests
+    const testApi = async () => {
+
+        const result = await FetchData("api/testApi",null ,"POST");
+
+        //const result = CrossScript();
+
+        console.log(result);
+    }
+
     return <div className="home bg-light">
 
         <img className="home__image" src="/images/amazon_prime.jpg" alt="." />
-
         <div className="home__row row ml-sm-2 justify-content-center">
 
             {/*<button onClick={showData} >click</button>*/}
+            
 
-            <div className="categories-info">
+            {/*<div className="categories-info">
                 <h1 className="text-white shadow-box">
                     Categories
                 </h1>
-            </div>
+            </div>*/}
 
             <div className="row justify-content-center">
                 {fetchData[0] === undefined ? <Loader /> : null}
