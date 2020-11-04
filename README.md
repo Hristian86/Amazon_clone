@@ -1,1 +1,1 @@
-#Link: https://amazion.tk
+Link: https://amazion.tk
