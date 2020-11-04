@@ -1,1 +1,1 @@
-<h2><small>Link :</smallhttps://amazion.tk</h2>  
+<h2><small>Link :</small>https://amazion.tk</h2>  
