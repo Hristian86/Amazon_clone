@@ -13,7 +13,6 @@ import { CHECK_USER } from '../ContextApi/Types';
 import { Link } from 'react-router-dom';
 import { upPage } from '../UpPage/Uppage';
 import FetchData from '../AuthListener/FetchData';
-import { validateEmail } from '../Validate/Validate';
 
 const Login = (props) => {
     const history = useHistory();
@@ -145,12 +144,8 @@ const Login = (props) => {
             error.innerHTML = "Email addres lenght must be at least 6 symbols";
         }
 
-        if (validateEmail(email)) {
-            error.innerHTML = "Email addres is not valid";
-        }
-
         // add regex
-        if (!validateEmail(email)) {
+        if (email.length <= 20) {
             setEmailState(email);
         }
     }

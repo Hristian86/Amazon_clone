@@ -60,7 +60,7 @@ const Validate = (subject, content, name, email) => {
 }
 
 export const validateEmail = (email) => {
-    var re = /\S{2}\S+@\S{2}\S+\.\S{3}\S+/;
+    var re = /\S{2}\S+@\S{2}\S+\.\S{1}\S+/;
     return re.test(email);
 }
 
