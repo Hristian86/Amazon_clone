@@ -21,6 +21,10 @@ const Categories = (props) => {
         }
     }
 
+    const showData = () => {
+        console.log("Here is the data");
+    }
+
     // array for map-ing products
     const displayArray = filter();
 

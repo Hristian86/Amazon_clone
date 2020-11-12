@@ -29,6 +29,7 @@ import AdminPage from './Pages/AdminPage/AdminPage';
 import FetchData from './components/AuthListener/FetchData';
 import Categories from './Pages/Categories/Categories';
 import NotFound from './Pages/NotFoundPage/NotFount';
+import PrdocutDetails from './Pages/DetailProductPage/ProductDetails/ProductDetails';
 
 const App = () => {
 
@@ -161,6 +162,10 @@ const App = () => {
 
                         <Route path="/categories/:name?/:id?">
                             <Categories />
+                        </Route>
+
+                        <Route path="/product/:id?/:productid?">
+                            <PrdocutDetails />
                         </Route>
 
                         <Route exact path="/">

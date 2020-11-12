@@ -3,13 +3,13 @@ import './Products.css';
 import { useStateValue } from '../ContextApi/StateProvider';
 import { useAlert } from 'react-alert';
 import AlertProductComponent from './AlertProductcomponent';
-import { Redirect, useHistory } from 'react-router';
+import { Redirect, useHistory, useParams } from 'react-router';
 import { upPage } from '../UpPage/Uppage';
 import Loader from '../Loader/Loader';
 
 const Products = ({ id, title, image, price, rating, data, index, productsCount }) => {
     const history = useHistory();
-
+    const params = useParams();
     const [{ basket }, dispatch] = useStateValue();
     const [state, setState] = useState();
 
@@ -58,11 +58,16 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount 
         }, 700);
     }
 
+    const detailView = () => {
+        upPage();
+        history.push(`/product/${params.id}/${id}`);
+    }
+
     // Patched up for now with check for price if the price is 0 or lover, then it maps all categories else it maps products in a given by parametar category
     // Mapping products
     if (price > 0) {
 
-        return <div className="product col-4">
+        return <div className="product col-4" onClick={detailView}>
 
             <div className="product__info">
                 <h5>

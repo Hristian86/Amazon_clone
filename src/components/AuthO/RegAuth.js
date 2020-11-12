@@ -16,7 +16,7 @@ const RegAuth = async (payload) => {
         }
 
     } catch (e) {
-
+        return e
     }
 }
 

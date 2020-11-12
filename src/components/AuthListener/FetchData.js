@@ -21,7 +21,7 @@ const FetchData = async (apiController, payload, method) => {
                     'X-XSRF-TOKEN': XSRFToken,
                 }, body: JSON.stringify(payload)
             };
-        } else if(method === "GET") {
+        } else if (method === "GET") {
             second_parametar = {
                 "method": `${method}`,
                 "headers": {
@@ -42,8 +42,23 @@ const FetchData = async (apiController, payload, method) => {
         }
 
         const result = await fetch(first__parametar, second_parametar)
-            .then(res => res.json())
-            .catch(err => console.log(err));
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                } else if (res.status >= 500) {
+                    throw new Error("Server error")
+                } else if (res.status == 400) {
+                    throw new Error("Invalid data")
+                } else if (res.status == 404) {
+                    throw new Error("Not found");
+                }
+            })
+            .catch(err => {
+                const error = {
+                    error: err
+                }
+                return error;
+            });
 
         if (await result) {
             //console.log(result);
@@ -51,7 +66,10 @@ const FetchData = async (apiController, payload, method) => {
         }
 
     } catch (e) {
-        return e;
+        const error = {
+            error: e
+        }
+        return error;
     }
 }
 

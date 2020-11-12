@@ -1,15 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\src",
     "\\src\\components",
-    "\\src\\components\\AuthO",
-    "\\src\\components\\Cookies",
-    "\\src\\components\\Validate",
-    "\\src\\components\\ValidateCrossScripting",
+    "\\src\\components\\Products",
     "\\src\\Pages",
-    "\\src\\Pages\\Home",
-    "\\src\\Pages\\Payment"
+    "\\src\\Pages\\Categories",
+    "\\src\\Pages\\DetailProductPage",
+    "\\src\\Pages\\DetailProductPage\\ProductDetails",
+    "\\src\\Pages\\DetailProductPage\\ProductDetails\\Sides",
+    "\\src\\Pages\\Home"
   ],
-  "SelectedNode": "\\.gitattributes",
+  "SelectedNode": "\\src\\Pages\\DetailProductPage\\ProductDetails\\ProductDetails.js",
   "PreviewInSolutionExplorer": false
 }
