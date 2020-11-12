@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\AuthListener",
     "\\src\\components\\AuthO",
     "\\src\\components\\Cookies",
+    "\\src\\components\\Validate",
     "\\src\\components\\ValidateCrossScripting",
     "\\src\\Pages",
     "\\src\\Pages\\Home",
     "\\src\\Pages\\Payment"
   ],
-  "SelectedNode": "\\src\\Pages\\Home\\Home.js",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }
