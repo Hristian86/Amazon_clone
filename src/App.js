@@ -31,9 +31,9 @@ import Categories from './Pages/Categories/Categories';
 import NotFound from './Pages/NotFoundPage/NotFount';
 import PrdocutDetails from './Pages/DetailProductPage/ProductDetails/ProductDetails';
 import SearchResult from './Pages/Search/SearrchResult';
+import StartAdminPage from './Pages/AdminPage/StartAdminPage';
 
 const App = () => {
-
     const [state, setState] = useState({});
     const [categoryState, setCategoryState] = useState({
         load: false
@@ -67,7 +67,7 @@ const App = () => {
     }
 
     let interval;
-    
+
     useEffect(() => {
         const getData = async () => {
             const result = await dataListener("api/categoriesApi");
@@ -102,13 +102,14 @@ const App = () => {
         const token = getCookie("token");
         const email = getCookie("email");
         const expiration = getCookie("expiration");
-
+        const role = getCookie("role");
         // Alot of nesting.
         const userNest = {
             user: user,
             token: token,
             email: email,
             expiration: expiration,
+            role: role,
         }
 
         let userToAdd = {
@@ -121,7 +122,7 @@ const App = () => {
         })
     }
 
-    
+
     const dataListener = async (apiController) => {
         const result = await FetchData(apiController, null, "GET");
         return result;
@@ -153,8 +154,17 @@ const App = () => {
                         <Route exact path="/payment">
                             <Payment />
                         </Route>
+
+                        <Route exact path="/landingadminpage" >
+                            {user[0]?.user?.role === "Admin"
+                                ? <StartAdminPage />
+                                : <Home />}
+                        </Route>
+
                         <Route exact path="/adminpage">
-                            <AdminPage />
+                            {user[0]?.user?.role === "Admin"
+                                ? <AdminPage />
+                                : <Home />}
                         </Route>
 
                         {/*<Route path="/categories/:id">

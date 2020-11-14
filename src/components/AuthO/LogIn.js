@@ -69,7 +69,7 @@ const Login = (props) => {
                     // Adding user to the store
                     addUser(user);
                     if (user.role[0] !== undefined) {
-                        setCookie("role", user.role[0], 5);
+                        setCookie("role", user.role, 5);
                     }
                     // Setting cookie user
                     user.user ? setCookieUser(user.user) :

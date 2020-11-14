@@ -30,15 +30,23 @@ const PrdocutDetails = () => {
     const filter = () => {
         if (id !== undefined && id !== "" && id !== null && id.length > 0 && fetchData[0] !== undefined) {
             let returnProductItem = [];
-            const displayItems = fetchData[0][id]?.products;
-            if (displayItems !== undefined) {
-                returnProductItem = displayItems.filter(data => {
-                    if (data.id == productid) {
+            const displayItems = fetchData[0]?.filter((data, index) => {
+                if (data?.id == id) {
+
+                    return data;
+                }
+            })
+
+            //products;
+            if (displayItems[0] !== undefined) {
+                returnProductItem = displayItems[0].products.filter(data => {
+                    if (data?.id == productid) {
                         return data;
                     }
                 });
-                console.log(displayItems);
-                console.log(returnProductItem);
+
+                //console.log(displayItems);
+                //console.log(returnProductItem);
                 setProduct({
                     data: returnProductItem,
                 })
@@ -52,7 +60,7 @@ const PrdocutDetails = () => {
             filter();
         }
     }, [fetchData])
-
+    console.log(product);
     return <div className="container container__perant">
 
         {product.data[0] !== undefined ?
@@ -61,6 +69,7 @@ const PrdocutDetails = () => {
                 < DetailPage
                     key={data?.id}
                     id={data?.id}
+                    categoryId={data?.categoryId}
                     content={data?.content}
                     createdOn={data?.createdOn}
                     description={data?.description}

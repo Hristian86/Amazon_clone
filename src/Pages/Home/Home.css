@@ -22,6 +22,10 @@
     margin-top: -140px;
 }
 
+.admin__widgets {
+    margin: auto;
+}
+
 @media only screen and (max-width: 900px) {
     /* Home image*/
     .home__image {

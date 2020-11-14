@@ -6,6 +6,11 @@
     width: 700px!important;
 }
 
+/*Search form holder for mobile change*/
+.search__formHolder {
+
+}
+
 /*links in the header*/
 .text-infos {
     margin: auto;
@@ -77,10 +82,15 @@
         width:290px!important;
     }
 
+    /*Search form holder for mobile change*/
+    .search__formHolder {
+        width: 90%!important;
+    }
+
     .header__options {
-        display: flex;
+        display: flex!important;
         justify-content: space-evenly;
-        height: 58px;
+        height: 88px!important;
         width: 387px!important;
     }
 }

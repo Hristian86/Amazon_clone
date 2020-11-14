@@ -7,7 +7,7 @@ import { Redirect, useHistory, useParams } from 'react-router';
 import { upPage } from '../UpPage/Uppage';
 import Loader from '../Loader/Loader';
 
-const Products = ({ id, title, image, price, rating, data, index, productsCount, categoryId }) => {
+const Products = ({ id, title, image, price, rating, data, index, productsCount, categoryId, type }) => {
     const history = useHistory();
     const params = useParams();
     const [{ basket }, dispatch] = useStateValue();
@@ -54,14 +54,19 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
         });
         setTimeout(() => {
             upPage();
-            history.push(`/categories/${title}?id=${index}`);
+            history.push(`/categories/${title}?id=${id}`);
         }, 700);
     }
 
     const detailView = () => {
+        setState({
+            loader: true
+        });
         setTimeout(() => {
             upPage();
             // Currently setting this parametar, "paramid" is category id and "id" is real product id
+            console.log(categoryId);
+            console.log(id);
             history.push(`/product/${title}?categoryid=${categoryId}&productid=${id}`);
         }, 700);
     }
@@ -73,19 +78,24 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
         return <div className="product col-4" onClick={detailView}>
 
             <div className="product__info">
-                <h5>
-                    <p className="product__title">{title}</p>
-                    <p className="product__price">
-                        <small>&euro;</small>
-                        <strong>{price}</strong>
-                    </p>
-                </h5>
+                {state?.loader ?
+                    <div className="text-center">
+                        <Loader />
+                    </div>
+                    :
+                    <h5>
+                        <p className="product__title">{title}</p>
+                        <p className="product__price">
+                            <small>&euro;</small>
+                            <strong>{price}</strong>
+                        </p>
+                    </h5>}
                 <div className="product__rating">
-                    {Array(rating)
+                    {!state?.loader ? Array(rating)
                         .fill()
                         .map((_, index) => (
                             <p key={index} className="text-warning"><i className="fa fa-star"></i></p>
-                        ))}
+                        )): null}
                 </div>
             </div>
 
@@ -117,12 +127,9 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
                         <small>products </small>
                         <strong>{productsCount}</strong>
                     </h5>}
+
                 <div className="product__rating">
-                    {Array(rating)
-                        .fill()
-                        .map((_, index) => (
-                            <p key={index} className="text-warning"><i className="fa fa-star"></i></p>
-                        ))}
+                    {state?.loader ? null : type }
                 </div>
             </div>
 

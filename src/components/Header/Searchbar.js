@@ -19,7 +19,7 @@ const Searchbar = () => {
         }
     }
 
-    return <Nav className="mr-auto w-100">
+    return <Nav className="mr-auto w-100 search__formHolder">
 
         <Form className="d-flex w-100 pl-md-3 pr-md-3" onSubmit={searchHandle}>
 

@@ -36,6 +36,7 @@ const HeaderOptions = () => {
         setCookie("token", null, -1);
         setCookie("user_name", null, -1);
         setCookie("cheked", null, -1);
+        setCookie("role", null, -1);
         dispatch({
             type: REMOVE_USER,
             user: {

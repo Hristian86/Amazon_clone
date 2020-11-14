@@ -4,7 +4,7 @@ import RightSide from './Sides/RightSide';
 import './DetailPage.css';
 //import { Link } from 'react-dom';
 
-const DetailPage = ({ content, createdOn, description, imageUrl, negativeVotes, positiveVotes, price, quantity, rating, shortContent, title, votesCount, id }) => {
+const DetailPage = ({ content, createdOn, description, imageUrl, negativeVotes, positiveVotes, price, quantity, rating, shortContent, title, votesCount, id, categoryId }) => {
 
     return <div className="container-fluid product__pagePerantHolder">
 

@@ -17,14 +17,23 @@ const Categories = (props) => {
     let parms = useParams();
     //console.log(id);
     console.log(parms);
-    
+
 
     // checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component
     const filter = () => {
         if (id !== undefined && fetchData[0] !== undefined) {
-            const displayItems = fetchData[0][id]?.products;
-            console.log(displayItems);
-            return displayItems;
+            let displayItems = fetchData[0].map(data => {
+                if (data.id == id) {
+                    console.log(data?.products);
+                    return data?.products;
+                }
+            });
+
+            //[id]?.products;
+            //console.log(displayItems);
+            const data = displayItems.filter(data => data !== undefined);
+            console.log(data);
+            return data[0];
         }
     }
 
@@ -48,7 +57,7 @@ const Categories = (props) => {
                 <Products
                     className="col-4"
                     index={index}
-                    categoryId={id}
+                    categoryId={data?.categoryId}
                     key={data?.id}
                     id={data?.id}
                     title={data?.title}

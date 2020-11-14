@@ -8,6 +8,7 @@ import FetchData from '../../components/AuthListener/FetchData';
 import Loader from '../../components/Loader/Loader';
 import Products from '../../components/Products/Products';
 
+let loading = false;
 const SearchResult = () => {
 
     function useQuery() {
@@ -15,7 +16,7 @@ const SearchResult = () => {
     }
     let query = useQuery();
     let searchItem = query.get("search");
-    const [searchWord, setSearchWord] = useState();
+    const [searchWord, setSearchWord] = useState("");
     const [product, setProduct] = useState({
         data: [],
     });
@@ -24,22 +25,33 @@ const SearchResult = () => {
     // checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component
     // Catched most of the obvius use cases
     const filter = async (searchItemName) => {
+        
         if (searchItemName !== undefined && searchItemName !== "" && searchItemName !== null && searchItemName.length > 0) {
-
+            loading = true;
             const result = await FetchData(`api/search?search=${searchItemName}`, null, "GET");
             if (result && !result.error && !result.errors) {
                 setProduct({
                     data: result,
                 });
                 setSearchWord(searchItemName);
+                loading = false;
                 console.log(result);
+            } else if (result.error || result.error.message == "Failed to fetch") {
+                console.log("Hereeeeeee");
+                loading = false;
+            } else if (result.errors) {
+                loading = false;
+            } else {
+                loading = false;
             }
+            console.log(result);
         }
     }
 
     // Get the product on url call
     if (searchWord !== query.get("search")) {
         filter(searchItem);
+        //loading = false;
     }
 
     return <div>
@@ -52,7 +64,10 @@ const SearchResult = () => {
 
 
         <div className="row justify-content-center">
-            {product?.data?.searchResult === undefined ? <Loader /> : null}
+            {product?.data?.searchResult === undefined
+                ?   
+                loading ? <Loader /> : null
+                : null}
             {product?.data?.searchResult?.map((data, index) => (
                 <Products
                     className="col-4"

@@ -5,20 +5,23 @@ import { useStateValue } from '../../components/ContextApi/StateProvider';
 import Loader from '../../components/Loader/Loader';
 import FetchData from '../../components/AuthListener/FetchData';
 import CrossScript from '../../components/ValidateCrossScripting/CrossScrit';
+import getCookie from '../../components/Cookies/GetCookie';
+import { useHistory } from 'react-router';
 
 const Home = () => {
-
+    const role = getCookie("role");
     const [{ fetchData }, dispatch] = useStateValue();
+    const history = useHistory();
 
     // Test for the context api store date
     const showData = () => {
-        console.log(fetchData[0]);
+        history.push("/landingadminpage");
     }
 
     // Some tests
     const testApi = async () => {
 
-        const result = await FetchData("api/testApi",null ,"POST");
+        const result = await FetchData("api/testApi", null, "POST");
 
         //const result = CrossScript();
 
@@ -26,38 +29,51 @@ const Home = () => {
     }
 
     return <div className="home bg-light">
-
+    
         <img className="home__image" src="/images/amazon_prime.jpg" alt="." />
-        <div className="home__row row ml-sm-2 justify-content-center">
+                <div className="home__row row ml-sm-2 justify-content-center">
 
-            {/*<button onClick={showData} >click</button>*/}
-            
 
-            {/*<div className="categories-info">
+
+                    {/*<div className="categories-info">
                 <h1 className="text-white shadow-box">
                     Categories
                 </h1>
             </div>*/}
 
-            <div className="row justify-content-center">
-                {fetchData[0] === undefined ? <Loader /> : null}
-                {fetchData[0]?.map((data, index) => (
-                    <Products
-                        className="col-6"
-                        index={index}
-                        key={data.id}
-                        id={data.id}
-                        title={data.name}
-                        price={0}
-                        data={data}
-                        rating={0}
-                        productsCount={data.productsCount}
-                        image={data.imageURL}
-                    />
-                ))}
+                    <div className="row justify-content-center">
+                        {fetchData[0] === undefined ? <Loader /> : null}
+                        {fetchData[0]?.map((data, index) => (
+                            <Products
+                                className="col-6"
+                                index={index}
+                                key={data.id}
+                                type={data?.type}
+                                id={data.id}
+                                title={data.name}
+                                price={0}
+                                data={data}
+                                rating={0}
+                                productsCount={data.productsCount}
+                                image={data.imageURL}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+        {role === "Admin" ?
+            <div className="row w-100 d-flex justify-content-between">
+                <div className="admin__widgets">
+
+                    <button className="btn btn-warning mr-2" onClick={showData} >AdminPage</button>
+
+                    <button className="btn btn-success" >Not implemented</button>
+
+                </div>
             </div>
-        </div>
-    </div>
+            : null}
+
+            </div>
 }
 
-export default Home;
+        export default Home;

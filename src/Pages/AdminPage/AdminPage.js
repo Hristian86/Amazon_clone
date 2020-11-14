@@ -3,8 +3,15 @@ import { useState } from 'react';
 import Validate, { validateEmail } from '../../components/Validate/Validate';
 import './AdminPage.css';
 import FetchData from '../../components/AuthListener/FetchData';
+import { useLocation } from 'react-router';
 
 const AdminPage = () => {
+    function useQuery() {
+        return new URLSearchParams(useLocation().search);
+    }
+    let query = useQuery();
+    let id = query.get("id");
+    let titleCategory = query.get("titleCategory");
 
     const [state, setState] = useState({
         success: false,
@@ -43,7 +50,8 @@ const AdminPage = () => {
 
                 if (await result === "email send") {
 
-                    const isCreated = await FetchData("product", payload, "POST");
+                    const isCreated = await FetchData("api/product", payload, "POST");
+
                     if (isCreated === "success") {
                         setState({
                             success: true
@@ -62,7 +70,7 @@ const AdminPage = () => {
                         });
 
                     } else {
-                        alert(isCreated);
+                        //alert(isCreated);
                         setState({
                             procesing: false
                         });
@@ -182,13 +190,13 @@ const AdminPage = () => {
 
             <div className="form-group">
                 <label >Title * {state.lettersName}</label>
-                <input onChange={nameHandler} type="text" maxLength="50" minLength="1" className="form-control" placeholder="name" name="title" />
+                <input onChange={nameHandler} type="text" maxLength="50" minLength="1" className="form-control" name="title" />
                 <span id="name" ></span>
             </div>
 
             <div className="form-group">
                 <label >CategoryId * {state.lettersName}</label>
-                <input onChange={nameHandler} type="text" maxLength="50" minLength="1" className="form-control" placeholder="name" name="categoryid" />
+                <input onChange={nameHandler} type="text" maxLength="50" minLength="1" className="form-control" value={id + " " + titleCategory} disabled  name="categoryid" />
                 <span id="name" ></span>
             </div>
 
@@ -196,31 +204,31 @@ const AdminPage = () => {
 
             <div className="form-group">
                 <label >ImageUrl * {state.lettersName}</label>
-                <input onChange={nameHandler} type="text" maxLength="200" minLength="1" className="form-control" placeholder="name" name="imageurl" />
+                <input onChange={nameHandler} type="text" maxLength="200" minLength="1" className="form-control" name="imageurl" />
                 <span id="name" ></span>
             </div>
 
             <div className="form-group">
                 <label >Quantity * {state.lettersName}</label>
-                <input onChange={nameHandler} type="text" maxLength="50" minLength="1" className="form-control" placeholder="name" name="quantity" />
+                <input onChange={nameHandler} type="text" maxLength="50" minLength="1" className="form-control" name="quantity" />
                 <span id="name" ></span>
             </div>
 
             <div className="form-group">
                 <label >Rating * {state.lettersSubject}</label>
-                <input onChange={subjectHandler} type="text" maxLength="50" minLength="1" className="form-control" placeholder="subject" name="rating" />
+                <input onChange={subjectHandler} type="text" maxLength="50" minLength="1" className="form-control" name="rating" />
                 <span id="subject" ></span>
             </div>
 
             <div className="form-group">
                 <label >Price * {state.lettersEmail}</label>
-                <input onChange={emailHandler} type="text" maxLength="50" minLength="1" className="form-control" placeholder="email" name="price" />
+                <input onChange={emailHandler} type="text" maxLength="50" minLength="1" className="form-control" name="price" />
                 <span id="email" ></span>
             </div>
 
             <div className="form-group">
                 <label >Content * {state.letters}</label>
-                <textarea type="text" onChange={messageHandler} className="form-control content-holder" placeholder="description" name="content" maxLength="1500" />
+                <textarea type="text" onChange={messageHandler} className="form-control content-holder"  name="content" maxLength="1500" />
                 <span id="content" ></span>
             </div>
 
