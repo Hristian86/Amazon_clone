@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import { useParams, useLocation } from 'react-router';
 import Products from '../../components/Products/Products';
 import { useStateValue } from '../../components/ContextApi/StateProvider';
 import './Categories.css';
@@ -7,10 +7,17 @@ import Loader from '../../components/Loader/Loader';
 
 const Categories = (props) => {
     const [{ fetchData }, dispatch] = useStateValue();
-    let { id } = useParams();
+
+    function useQuery() {
+        return new URLSearchParams(useLocation().search);
+    }
+    let query = useQuery();
+    let id = query.get("id");
+    //let { id } = useParams();
     let parms = useParams();
     //console.log(id);
-    //console.log(parms);
+    console.log(parms);
+    
 
     // checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component
     const filter = () => {
@@ -41,13 +48,14 @@ const Categories = (props) => {
                 <Products
                     className="col-4"
                     index={index}
-                    key={data.id}
-                    id={data.id}
-                    title={data.title}
-                    price={data.price}
+                    categoryId={id}
+                    key={data?.id}
+                    id={data?.id}
+                    title={data?.title}
+                    price={data?.price}
                     data={data}
-                    rating={data.rating}
-                    image={data.imageUrl}
+                    rating={data?.rating}
+                    image={data?.imageUrl}
                 />
             ))}
         </div>

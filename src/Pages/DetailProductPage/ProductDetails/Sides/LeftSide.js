@@ -3,7 +3,7 @@ import './LeftSide.css';
 
 const LeftSide = ({ imageUrl }) => {
 
-    return <div className="col-md-4">
+    return <div className="product__pageImage text-center">
         <div className="detail__imageHolder">
             <img src={imageUrl} className="detail__image" />
         </div>

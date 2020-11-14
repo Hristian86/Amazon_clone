@@ -1,4 +1,8 @@
 .detail__image {
     object-fit: contain;
-    width: 270px;
+    width: 220px;
+}
+
+.product__pageImage {
+
 }

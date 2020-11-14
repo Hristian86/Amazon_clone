@@ -42,7 +42,7 @@ const RightSide = ({ content, createdOn, description, negativeVotes, positiveVot
         }
     }
 
-    return <div className="col-md-8">
+    return <div className="pt-3 pl-1 pr-1">
 
         <h1 className="title__holder">
             {title}

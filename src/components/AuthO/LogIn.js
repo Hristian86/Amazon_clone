@@ -63,12 +63,12 @@ const Login = (props) => {
                 let notLoged = false;
 
                 let user = await LogInHandler(payload);
-
+                console.log(user);
                 if (user.email && user.token) {
 
                     // Adding user to the store
                     addUser(user);
-                    if (user?.role[0] !== undefined) {
+                    if (user.role[0] !== undefined) {
                         setCookie("role", user.role[0], 5);
                     }
                     // Setting cookie user

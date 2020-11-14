@@ -30,6 +30,7 @@ import FetchData from './components/AuthListener/FetchData';
 import Categories from './Pages/Categories/Categories';
 import NotFound from './Pages/NotFoundPage/NotFount';
 import PrdocutDetails from './Pages/DetailProductPage/ProductDetails/ProductDetails';
+import SearchResult from './Pages/Search/SearrchResult';
 
 const App = () => {
 
@@ -70,7 +71,7 @@ const App = () => {
     useEffect(() => {
         const getData = async () => {
             const result = await dataListener("api/categoriesApi");
-            if (result) {
+            if (result && !result.error && !result.errors) {
                 const res = JSON.parse(result.geoLocation);
                 console.log(res);
                 setCategoryState({
@@ -160,11 +161,15 @@ const App = () => {
                             <Categories />
                         </Route>*/}
 
-                        <Route path="/categories/:name?/:id?">
+                        <Route path="/search">
+                            <SearchResult />
+                        </Route>
+
+                        <Route path="/categories/:name?">
                             <Categories />
                         </Route>
 
-                        <Route path="/product/:id?/:productid?">
+                        <Route path="/product/:name?">
                             <PrdocutDetails />
                         </Route>
 

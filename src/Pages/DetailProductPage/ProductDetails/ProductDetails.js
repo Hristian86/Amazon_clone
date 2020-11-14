@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useParams } from 'react-router';
+import { useParams, useLocation } from 'react-router';
 import DetailPage from './DetailPage';
 import { useStateValue } from '../../../components/ContextApi/StateProvider';
 import './ProductDetails.css';
@@ -9,8 +9,15 @@ import Loader from '../../../components/Loader/Loader';
 
 let load = false;
 const PrdocutDetails = () => {
-    const { id } = useParams();
-    const { productid } = useParams();
+    function useQuery() {
+        return new URLSearchParams(useLocation().search);
+    }
+    let query = useQuery();
+    let id = query.get("categoryid");
+    let productid = query.get("productid");
+    //console.log(productid);
+    //const { id } = useParams();
+    //const { productid } = useParams();
     const [product, setProduct] = useState({
         data: [],
     });
@@ -19,20 +26,23 @@ const PrdocutDetails = () => {
     const [{ fetchData }, dispatch] = useStateValue();
 
     // checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component
+    // Catched most of the obvius use cases
     const filter = () => {
-        if (id !== undefined && fetchData[0] !== undefined) {
+        if (id !== undefined && id !== "" && id !== null && id.length > 0 && fetchData[0] !== undefined) {
             let returnProductItem = [];
             const displayItems = fetchData[0][id]?.products;
-            returnProductItem = displayItems.filter(data => {
-                if (data.id == productid) {
-                    return data;
-                }
-            });
-            console.log(displayItems);
-            console.log(returnProductItem);
-            setProduct({
-                data: returnProductItem,
-            })
+            if (displayItems !== undefined) {
+                returnProductItem = displayItems.filter(data => {
+                    if (data.id == productid) {
+                        return data;
+                    }
+                });
+                console.log(displayItems);
+                console.log(returnProductItem);
+                setProduct({
+                    data: returnProductItem,
+                })
+            }
         }
     }
 
@@ -43,7 +53,7 @@ const PrdocutDetails = () => {
         }
     }, [fetchData])
 
-    return <div className="container-fluid container__perant">
+    return <div className="container container__perant">
 
         {product.data[0] !== undefined ?
 
@@ -69,18 +79,18 @@ const PrdocutDetails = () => {
             null
         }
 
-        {fetchData[0] === undefined ? 
+        {fetchData[0] === undefined ?
             <div className="text-center">
                 <Loader />
             </div>
             :
             null
-            }
+        }
 
         {fetchData[0] !== undefined && product.data[0] === undefined
             ? <div className="text-center">Item not found</div>
             : null
-            }
+        }
 
     </div>
 

@@ -7,7 +7,7 @@ import { Redirect, useHistory, useParams } from 'react-router';
 import { upPage } from '../UpPage/Uppage';
 import Loader from '../Loader/Loader';
 
-const Products = ({ id, title, image, price, rating, data, index, productsCount }) => {
+const Products = ({ id, title, image, price, rating, data, index, productsCount, categoryId }) => {
     const history = useHistory();
     const params = useParams();
     const [{ basket }, dispatch] = useStateValue();
@@ -54,13 +54,16 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount 
         });
         setTimeout(() => {
             upPage();
-            history.push(`/categories/${title}/${index}`);
+            history.push(`/categories/${title}?id=${index}`);
         }, 700);
     }
 
     const detailView = () => {
-        upPage();
-        history.push(`/product/${params.id}/${id}`);
+        setTimeout(() => {
+            upPage();
+            // Currently setting this parametar, "paramid" is category id and "id" is real product id
+            history.push(`/product/${title}?categoryid=${categoryId}&productid=${id}`);
+        }, 700);
     }
 
     // Patched up for now with check for price if the price is 0 or lover, then it maps all categories else it maps products in a given by parametar category
