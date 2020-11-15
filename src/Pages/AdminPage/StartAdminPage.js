@@ -6,8 +6,6 @@ import AdminCategoryModel from './AdminCategoryModel';
 
 const StartAdminPage = () => {
     const [{ fetchData }, dispatch] = useStateValue();
-    const history = useHistory();
-    
     
     return <div className="row">
 
@@ -23,7 +21,7 @@ const StartAdminPage = () => {
                 data={data}
                 rating={0}
                 productsCount={data.productsCount}
-                image={data.imageURL}
+                image={data.imageUrl}
                 />
         ))}
 

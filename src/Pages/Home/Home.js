@@ -42,6 +42,7 @@ const Home = () => {
                                 className="col-6"
                                 index={index}
                                 delimeter={data?.delimeter}
+                                categoriesCount={data?.categoriesCount}
                                 key={data.id}
                                 type={data?.type}
                                 id={data?.id}

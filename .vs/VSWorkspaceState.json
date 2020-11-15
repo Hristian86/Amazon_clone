@@ -3,15 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\ContextApi",
+    "\\src\\components\\Products",
     "\\src\\Pages",
+    "\\src\\Pages\\AdminPage",
     "\\src\\Pages\\Categories",
-    "\\src\\Pages\\CategoryChild",
-    "\\src\\Pages\\DetailProductPage",
-    "\\src\\Pages\\DetailProductPage\\ProductDetails",
     "\\src\\Pages\\Home",
-    "\\src\\Pages\\ProductListPage"
+    "\\src\\Pages\\ProductListPage",
+    "\\src\\Pages\\Search"
   ],
-  "SelectedNode": "\\src\\Pages\\DetailProductPage\\ProductDetails\\ProductDetails.js",
+  "SelectedNode": "\\src\\App.js",
   "PreviewInSolutionExplorer": false
 }

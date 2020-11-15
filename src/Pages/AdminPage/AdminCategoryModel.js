@@ -5,7 +5,7 @@ import Loader from '../../components/Loader/Loader';
 import { useHistory } from 'react-router';
 import { upPage } from '../../components/UpPage/Uppage';
 
-const AdminCategoryModel = ({ id, title, image, productsCount, type }) => {
+const AdminCategoryModel = ({ id, title, image, productsCount, type, data }) => {
     const [{ basket }, dispatch] = useStateValue();
     const [state, setState] = useState();
     const history = useHistory();
@@ -14,8 +14,12 @@ const AdminCategoryModel = ({ id, title, image, productsCount, type }) => {
         upPage();
         history.push(`/adminPage?id=${id}&titleCategory=${title}`);
     }
+
+    const dataHandler = () => {
+
+    }
     
-    return <div onClick={adminHandler} className="product col category-cursor">
+    return <div className="product col category-cursor">
 
         <div className="product__info">
             {state?.loader ?
@@ -42,6 +46,15 @@ const AdminCategoryModel = ({ id, title, image, productsCount, type }) => {
                 <button onClick={adminHandler} className="btn button__addToNasket m-auto">View {title}</button>
             </div>
         </div>
+
+        <div>
+            <div className="button__holder">
+                <button onClick={dataHandler} className="btn button__addToNasket m-auto">Categori</button>
+            </div>
+        </div>
+
+
+
     </div>
 
 }
