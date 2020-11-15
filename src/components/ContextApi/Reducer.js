@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET, REMOVE_ITEM_FROM_BASKET, GET_ITEMS, CHECK_USER, REMOVE_USER } from "./Types";
+import { ADD_TO_BASKET, REMOVE_ITEM_FROM_BASKET, GET_ITEMS, CHECK_USER, REMOVE_USER, SET_CATEGORY_PERANT } from "./Types";
 
 // initail state of the app
 
@@ -6,6 +6,7 @@ export const initialState = {
     basket: [],
     user: [],
     fetchData: [],
+    categoryPerant: [],
 };
 
 const removeReducer = (state) => {
@@ -28,6 +29,13 @@ const Reducer = (state, action) => {
             return {
                 ...state,
                 user: [...state.user.filter(i => i.user == "remove user :0")]
+            };
+            break;
+        case SET_CATEGORY_PERANT:
+            // Set category root perant
+            return {
+                ...state,
+                categoryPerant: [...state.categoryPerant, action.categoryPerant.items]
             };
             break;
         case CHECK_USER:

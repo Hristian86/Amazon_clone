@@ -10,6 +10,7 @@ import Products from '../../components/Products/Products';
 
 let loading = false;
 const SearchResult = () => {
+    const [{ fetchData }, dispatch] = useStateValue();
 
     function useQuery() {
         return new URLSearchParams(useLocation().search);
@@ -24,51 +25,64 @@ const SearchResult = () => {
 
     // checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component
     // Catched most of the obvius use cases
-    const filter = async (searchItemName) => {
-        
-        if (searchItemName !== undefined && searchItemName !== "" && searchItemName !== null && searchItemName.length > 0) {
+    const filters = (searchItemName) => {
+        if (searchItemName !== undefined && searchItemName !== "" && searchItemName !== null && searchItemName.length > 0 && fetchData[0] !== undefined) {
             loading = true;
-            const result = await FetchData(`api/search?search=${searchItemName}`, null, "GET");
-            if (result && !result.error && !result.errors) {
-                setProduct({
-                    data: result,
+            let display = [];
+            let displayItemss = [];
+            
+            let sortedData = fetchData[0]?.filter(data => {
+
+                return data?.categories?.filter(data => {
+                    //console.log(data?.products);
+                    displayItemss = data?.products?.filter(data => {
+                        if (data.title.toLowerCase().includes(searchItemName.toLowerCase().toString())) {
+                            console.log(data);
+                            display.push(data);
+                            return data
+                        }
+                    });
+
                 });
-                setSearchWord(searchItemName);
-                loading = false;
-                console.log(result);
-            } else if (result.error || result.error.message == "Failed to fetch") {
-                console.log("Hereeeeeee");
-                loading = false;
-            } else if (result.errors) {
-                loading = false;
-            } else {
-                loading = false;
-            }
-            console.log(result);
+            });
+
+            return display;
         }
     }
 
-    // Get the product on url call
+    useEffect(() => {
+        if (searchWord !== query.get("search")) {
+            setSearchWord(searchItem);
+            let result = filters(searchItem);
+            setProduct({
+                data: result,
+            });
+        }
+    }, [fetchData]);
+
     if (searchWord !== query.get("search")) {
-        filter(searchItem);
-        //loading = false;
+        setSearchWord(searchItem);
+        let result = filters(searchItem);
+        setProduct({
+            data: result,
+        });
     }
 
     return <div>
 
         <div className="">
-        <h2 className="text-center">You searched for '{searchItem}'</h2>
+            <h2 className="text-center">You searched for '{searchItem}'</h2>
 
             <img className="home__image2" src="https://www.sellerapp.com/blog/wp-content/uploads/2019/02/Amazon-Product-Photography-Guidelines-and-1.png" alt="." />
         </div>
 
 
         <div className="row justify-content-center">
-            {product?.data?.searchResult === undefined
-                ?   
+            {product?.data === undefined
+                ?
                 loading ? <Loader /> : null
                 : null}
-            {product?.data?.searchResult?.map((data, index) => (
+            {product?.data?.map((data, index) => (
                 <Products
                     className="col-4"
                     categoryId={data?.categoryId}

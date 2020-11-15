@@ -7,7 +7,7 @@ import { Redirect, useHistory, useParams } from 'react-router';
 import { upPage } from '../UpPage/Uppage';
 import Loader from '../Loader/Loader';
 
-const Products = ({ id, title, image, price, rating, data, index, productsCount, categoryId, type }) => {
+const Products = ({ id, title, image, price, rating, data, index, productsCount, categoryId, type, delimeter, categoryPerantId }) => {
     const history = useHistory();
     const params = useParams();
     const [{ basket }, dispatch] = useStateValue();
@@ -54,7 +54,7 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
         });
         setTimeout(() => {
             upPage();
-            history.push(`/categories/${title}?id=${id}`);
+            history.push(`/productlist/${title}?categoryid=${id}&categoryPerantId=${categoryPerantId}`);
         }, 700);
     }
 
@@ -67,13 +67,13 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
             // Currently setting this parametar, "paramid" is category id and "id" is real product id
             console.log(categoryId);
             console.log(id);
-            history.push(`/product/${title}?categoryid=${categoryId}&productid=${id}`);
+            history.push(`/product/${title}?categoryid=${categoryId}&productid=${id}&categoryPerantId=${categoryPerantId}`);
         }, 700);
     }
 
     // Patched up for now with check for price if the price is 0 or lover, then it maps all categories else it maps products in a given by parametar category
     // Mapping products
-    if (price > 0) {
+    if (price > 0 || data?.length > 0) {
 
         return <div className="product col-4" onClick={detailView}>
 

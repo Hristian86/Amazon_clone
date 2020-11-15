@@ -22,7 +22,7 @@ import url from './components/BaseUrl/BaseUrl';
 import Login from './components/AuthO/LogIn';
 //import PrivateRoute from './components/Auth/PrivateRoute';
 import Footer from './components/Footer';
-import { CHECK_USER, GET_ITEMS } from './components/ContextApi/Types';
+import { CHECK_USER, GET_ITEMS, SET_CATEGORY_PERANT } from './components/ContextApi/Types';
 import Checkout from './Pages/Checkout/Checkout';
 import Payment from './Pages/Payment/Payment';
 import AdminPage from './Pages/AdminPage/AdminPage';
@@ -32,6 +32,8 @@ import NotFound from './Pages/NotFoundPage/NotFount';
 import PrdocutDetails from './Pages/DetailProductPage/ProductDetails/ProductDetails';
 import SearchResult from './Pages/Search/SearrchResult';
 import StartAdminPage from './Pages/AdminPage/StartAdminPage';
+import CategoryChild from './Pages/CategoryChild/CategoryChild';
+import ProductList from './Pages/ProductListPage/ProductListPage';
 
 const App = () => {
     const [state, setState] = useState({});
@@ -55,13 +57,23 @@ const App = () => {
         }
     }
 
-    // Fetching categories data from back end.
+    const setCategoryPerantItems = (data) => {
+        console.log("Setting...");
+        dispatch({
+            type: SET_CATEGORY_PERANT,
+            categoryPerant: {
+                items: data.categoryPerant
+            },
+        });
+    }
+
+    // Fetching categories data from back end and sending it to the local store.
     const fetchDataFromApi = (data) => {
         console.log("fetching...");
         dispatch({
             type: GET_ITEMS,
             fetcheData: {
-                items: data.categories
+                items: data.categoryPerant
             },
         });
     }
@@ -77,6 +89,7 @@ const App = () => {
                 setCategoryState({
                     load: true
                 });
+                console.log(result);
                 fetchDataFromApi(result);
                 //clearInterval(interval);
             }
@@ -171,8 +184,16 @@ const App = () => {
                             <Categories />
                         </Route>*/}
 
+                        <Route path="/categorylist/:name?">
+                            <CategoryChild />
+                        </Route>
+
                         <Route path="/search">
                             <SearchResult />
+                        </Route>
+
+                        <Route path="/productlist/:name?">
+                            <ProductList />
                         </Route>
 
                         <Route path="/categories/:name?">

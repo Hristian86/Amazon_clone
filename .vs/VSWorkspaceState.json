@@ -3,15 +3,15 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\AuthO",
-    "\\src\\components\\Products",
+    "\\src\\components\\ContextApi",
     "\\src\\Pages",
+    "\\src\\Pages\\Categories",
+    "\\src\\Pages\\CategoryChild",
     "\\src\\Pages\\DetailProductPage",
     "\\src\\Pages\\DetailProductPage\\ProductDetails",
-    "\\src\\Pages\\DetailProductPage\\ProductDetails\\Sides",
     "\\src\\Pages\\Home",
-    "\\src\\Pages\\Search"
+    "\\src\\Pages\\ProductListPage"
   ],
-  "SelectedNode": "\\src\\Pages\\Search\\SearrchResult.js",
+  "SelectedNode": "\\src\\Pages\\DetailProductPage\\ProductDetails\\ProductDetails.js",
   "PreviewInSolutionExplorer": false
 }

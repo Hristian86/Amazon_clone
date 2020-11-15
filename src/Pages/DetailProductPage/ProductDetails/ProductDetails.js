@@ -13,6 +13,7 @@ const PrdocutDetails = () => {
         return new URLSearchParams(useLocation().search);
     }
     let query = useQuery();
+    let categoryPerantId = query.get("categoryPerantId");
     let id = query.get("categoryid");
     let productid = query.get("productid");
     //console.log(productid);
@@ -29,26 +30,32 @@ const PrdocutDetails = () => {
     // Catched most of the obvius use cases
     const filter = () => {
         if (id !== undefined && id !== "" && id !== null && id.length > 0 && fetchData[0] !== undefined) {
-            let returnProductItem = [];
-            const displayItems = fetchData[0]?.filter((data, index) => {
-                if (data?.id == id) {
 
-                    return data;
+
+            let displayItemss = [];
+            let sortedData = fetchData[0]?.filter(data => {
+
+                if (categoryPerantId === "undefined") {
+                    return data?.categories?.filter(data => {
+                        if (data.id == id) {
+                            displayItemss = data.products.filter(data => data.id == productid);
+                            return data.products;
+                        }
+                    });
+                } else if (data.id == categoryPerantId) {
+                    return data?.categories?.filter(data => {
+                        if (data.id == id) {
+                            displayItemss = data.products.filter(data => data.id == productid);
+                            return data.products;
+                        }
+                    });
                 }
-            })
+            });
 
             //products;
-            if (displayItems[0] !== undefined) {
-                returnProductItem = displayItems[0].products.filter(data => {
-                    if (data?.id == productid) {
-                        return data;
-                    }
-                });
-
-                //console.log(displayItems);
-                //console.log(returnProductItem);
+            if (displayItemss[0] !== undefined) {
                 setProduct({
-                    data: returnProductItem,
+                    data: displayItemss,
                 })
             }
         }

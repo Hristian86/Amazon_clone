@@ -7,6 +7,7 @@ import FetchData from '../../components/AuthListener/FetchData';
 import CrossScript from '../../components/ValidateCrossScripting/CrossScrit';
 import getCookie from '../../components/Cookies/GetCookie';
 import { useHistory } from 'react-router';
+import CategoryPerant from './CategoryPerant';
 
 const Home = () => {
     const role = getCookie("role");
@@ -34,28 +35,22 @@ const Home = () => {
                 <div className="home__row row ml-sm-2 justify-content-center">
 
 
-
-                    {/*<div className="categories-info">
-                <h1 className="text-white shadow-box">
-                    Categories
-                </h1>
-            </div>*/}
-
                     <div className="row justify-content-center">
                         {fetchData[0] === undefined ? <Loader /> : null}
                         {fetchData[0]?.map((data, index) => (
-                            <Products
+                            <CategoryPerant
                                 className="col-6"
                                 index={index}
+                                delimeter={data?.delimeter}
                                 key={data.id}
                                 type={data?.type}
-                                id={data.id}
-                                title={data.name}
+                                id={data?.id}
+                                title={data?.name}
                                 price={0}
                                 data={data}
                                 rating={0}
                                 productsCount={data.productsCount}
-                                image={data.imageURL}
+                                image={data?.imageURL ? data.imageURL : data.imageUrl}
                             />
                         ))}
                     </div>
