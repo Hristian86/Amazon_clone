@@ -4,11 +4,11 @@
     "\\public",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\BaseUrl",
     "\\src\\Pages",
-    "\\src\\Pages\\DetailProductPage\\ProductDetails",
-    "\\src\\Pages\\DetailProductPage\\ProductDetails\\Sides",
+    "\\src\\Pages\\AdminPage",
     "\\src\\Pages\\Search"
   ],
-  "SelectedNode": "\\src\\Pages\\Search\\SearrchResult.js",
+  "SelectedNode": "\\src\\Pages\\AdminPage\\AdminPage.js",
   "PreviewInSolutionExplorer": false
 }

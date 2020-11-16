@@ -32,12 +32,14 @@ const AdminPage = () => {
 
         const payload = {
             title: e.target.title.value,
-            categoryid: Number(e.target.categoryid.value),
+            categoryid: Number(id),
             rating: Number(e.target.rating.value),
             quantity: Number(e.target.quantity.value),
             imageurl: e.target.imageurl.value,
             price: Number(e.target.price.value),
             content: e.target.content.value,
+            description: e.target.description.value,
+            id: 0,
         }
 
         //validations for the inputs
@@ -51,7 +53,7 @@ const AdminPage = () => {
                 if (await result === "email send") {
 
                     const isCreated = await FetchData("api/product", payload, "POST");
-
+                    console.log(isCreated);
                     if (isCreated === "success") {
                         setState({
                             success: true
@@ -218,6 +220,12 @@ const AdminPage = () => {
                 <label >Rating * {state.lettersSubject}</label>
                 <input onChange={subjectHandler} type="text" maxLength="50" minLength="1" className="form-control" name="rating" />
                 <span id="subject" ></span>
+            </div>
+
+            <div className="form-group">
+                <label >Description * {state.lettersEmail}</label>
+                <input onChange={emailHandler} type="text" maxLength="50" minLength="1" className="form-control" name="description" />
+                <span id="email" ></span>
             </div>
 
             <div className="form-group">
