@@ -11,15 +11,18 @@ const ProductList = () => {
         return new URLSearchParams(useLocation().search);
     }
     let query = useQuery();
+
+    // Query parametars from url.
     let categoryid = query.get("categoryid");
     let categoryPerantId = query.get("categoryPerantId");
+
     //let { id } = useParams();
     let parms = useParams();
     //console.log(id);
     console.log(parms);
 
 
-    // checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component
+    // checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component.
     const filter = () => {
         if (categoryid !== undefined && fetchData[0] !== undefined) {
 
@@ -41,13 +44,15 @@ const ProductList = () => {
         }
     }
 
+    // Test method.
     const showData = () => {
         console.log("Here is the data");
     }
 
-    // array for map-ing products
+    // array for map-ing products.
     const displayArray = filter();
 
+    // Here is the collection of products that are navigated through Root-category + category-chield = PrdouctList.
     return <div className="bg-light">
 
         <div className="">

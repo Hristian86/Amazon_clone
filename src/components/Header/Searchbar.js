@@ -8,7 +8,7 @@ const Searchbar = () => {
     const [search, setSearch] = useState("");
     const history = useHistory();
 
-    // To Do search in the database
+    // Search implemented locally in the client side.
     const searchHandle = (e) => {
         e.preventDefault();
         if (search.length > 0) {

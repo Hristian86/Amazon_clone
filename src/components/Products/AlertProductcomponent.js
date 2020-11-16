@@ -1,7 +1,7 @@
 import React from 'react';
 import './Alert.css';
 
-// Alert for user or guest navigation through the site
+// Alert for user or guest navigation through the site.
 const AlertProductComponent = ({ title, image, message }) => {
 
     return <div className="mt-5">

@@ -44,6 +44,7 @@ const Categories = (props) => {
     // array for map-ing products
     const displayArray = filter();
 
+    // Not using this component
     return <div className="bg-light">
 
         <div className="">

@@ -13,7 +13,7 @@ const CheckoutProduct = ({ id, title, image, price, rating }) => {
     });
     const alert = useAlert();
 
-    // Remove item from basket alert + dispatch to context api and recalculate the price with reducer
+    // Remove item from basket alert + dispatch to context api and recalculate the price with reducer.
     const removefromBasket = () => {
         alert.show(<AlertProductComponent image={image} title={title} message={" item removed from the basket"} />);
 

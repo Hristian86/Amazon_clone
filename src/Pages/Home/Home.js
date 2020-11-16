@@ -7,7 +7,7 @@ import FetchData from '../../components/AuthListener/FetchData';
 import CrossScript from '../../components/ValidateCrossScripting/CrossScrit';
 import getCookie from '../../components/Cookies/GetCookie';
 import { useHistory } from 'react-router';
-import CategoryPerant from './CategoryPerant';
+import CategoryPerant from '../../components/categoryPerantModel/CategoryPerant';
 
 const Home = () => {
     const role = getCookie("role");
@@ -18,7 +18,7 @@ const Home = () => {
     const showData = () => {
         history.push("/landingadminpage");
     }
-
+    
     // Some tests
     const testApi = async () => {
 

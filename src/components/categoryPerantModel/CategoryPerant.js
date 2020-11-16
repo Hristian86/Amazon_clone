@@ -1,17 +1,24 @@
 import React from 'react';
-import Loader from '../../components/Loader/Loader';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import './CategoryPerant.css';
+import Loader from '../Loader/Loader';
 
 const CategoryPerant = ({ title, image, id, categoriesCount }) => {
     const [state, setState] = useState();
     const history = useHistory();
 
+    // Link to chield categories.
     const categoryHolder = () => {
-        history.push(`/categorylist/${title}?perantid=${id}`);
+        setState({
+            loader: true,
+        });
+        setTimeout(() => {
+            history.push(`/categorylist/${title}?perantid=${id}`);
+        }, 300)
     }
 
+    // Returns the Root category perants.
     return <div className="product col-4" onClick={categoryHolder}>
 
         <div className="product__info">

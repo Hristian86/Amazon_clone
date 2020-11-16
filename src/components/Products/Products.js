@@ -15,7 +15,7 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
 
     const alert = useAlert();
 
-    // Adding product to the basket and check for duplicate if there are no duplacate in the context api store it will be added witch dispatching an action
+    // Adding product to the basket and check for duplicate if there are no duplacate in the context api store it will be added witch dispatching an action.
     const addToBasket = () => {
 
         const checkBasketForRepeatence = basket.filter(data => data.id == id);
@@ -46,7 +46,7 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
         }
     }
 
-    // Push history to categories by title and id where, products will be displayed for a given category
+    // Push history to ProductList by chield categoryid and categoryPerantId where, products will be displayed for a given chield category.
     const viewCategories = () => {
         //return <Redirect to="/categories" />
         setState({
@@ -55,7 +55,7 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
         setTimeout(() => {
             upPage();
             history.push(`/productlist/${title}?categoryid=${id}&categoryPerantId=${categoryPerantId}`);
-        }, 700);
+        }, 300);
     }
 
     const detailView = () => {
@@ -64,15 +64,15 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
         });
         setTimeout(() => {
             upPage();
-            // Currently setting this parametar, "paramid" is category id and "id" is real product id
+            // Currently setting this parametar, categoryPerantId is category perant id, categoryid is chield category id and "id" is real product id.
             console.log(categoryId);
             console.log(id);
             history.push(`/product/${title}?categoryid=${categoryId}&productid=${id}&categoryPerantId=${categoryPerantId}`);
-        }, 700);
+        }, 300);
     }
 
-    // Patched up for now with check for price if the price is 0 or lover, then it maps all categories else it maps products in a given by parametar category
-    // Mapping products
+    // Patched up for now with check for price if the price is 0 or lover, then it maps all categories else it maps products in a given by parametar category.
+    // Mapping products.
     if (price > 0 || data?.length > 0) {
 
         return <div className="product col-4" onClick={detailView}>

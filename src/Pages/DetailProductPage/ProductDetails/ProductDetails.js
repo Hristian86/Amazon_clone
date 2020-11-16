@@ -13,9 +13,15 @@ const PrdocutDetails = () => {
         return new URLSearchParams(useLocation().search);
     }
     let query = useQuery();
+
+    // Query parametars from url.
+    // Perant root category.
     let categoryPerantId = query.get("categoryPerantId");
+    // Chield category.
     let id = query.get("categoryid");
+    // Product.
     let productid = query.get("productid");
+
     //console.log(productid);
     //const { id } = useParams();
     //const { productid } = useParams();
@@ -26,8 +32,8 @@ const PrdocutDetails = () => {
 
     const [{ fetchData }, dispatch] = useStateValue();
 
-    // checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component
-    // Catched most of the obvius use cases
+    // checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component.
+    // Catched most of the obvious use cases.
     const filter = () => {
         if (id !== undefined && id !== "" && id !== null && id.length > 0 && fetchData[0] !== undefined) {
 

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Get a cookie by name.
 const getCookie = (cname) => {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);

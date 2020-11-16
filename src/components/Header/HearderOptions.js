@@ -17,7 +17,7 @@ const HeaderOptions = () => {
     const [store, dispatch] = useStateValue();
     let user = store.user;
 
-    // Remove item from basket in the context api store
+    // Remove item from basket in the context api store.
     const removefromBasket = () => {
         console.log("removing");
         dispatch({
@@ -28,7 +28,7 @@ const HeaderOptions = () => {
         });
     }
 
-    // Removing all cookies when logout
+    // Removing all cookies when logout.
     const logOutHandle = () => {
         upPage();
         setCookie('email', null, -1);
@@ -45,7 +45,7 @@ const HeaderOptions = () => {
         });
     }
 
-    // Check the cookie for user if it exists then user is logged
+    // Check the cookie for user if it exists then user is logged.
     const retriveData = () => {
 
         const user = getCookie('user');
@@ -74,7 +74,7 @@ const HeaderOptions = () => {
         })
     }
 
-    // checking if store is empty and setting state
+    // checking if store is empty and setting state.
     useEffect(() => {
         setTimeout(() => {
             setState({
@@ -83,12 +83,12 @@ const HeaderOptions = () => {
 
         }, 200);
 
-        // Initialize the check for user on landing the page
+        // Initialize the check for user on landing the page.
         retriveData();
 
     }, [user])
 
-    // test ground
+    // test ground.
     const prevDef = async () => {
 
         const res = await FetchData('testapi', user, 'POST');

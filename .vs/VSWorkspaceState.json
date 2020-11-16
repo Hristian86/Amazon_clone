@@ -1,16 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\Products",
     "\\src\\Pages",
-    "\\src\\Pages\\AdminPage",
-    "\\src\\Pages\\Categories",
-    "\\src\\Pages\\Home",
-    "\\src\\Pages\\ProductListPage",
+    "\\src\\Pages\\DetailProductPage\\ProductDetails",
+    "\\src\\Pages\\DetailProductPage\\ProductDetails\\Sides",
     "\\src\\Pages\\Search"
   ],
-  "SelectedNode": "\\src\\App.js",
+  "SelectedNode": "\\src\\Pages\\Search\\SearrchResult.js",
   "PreviewInSolutionExplorer": false
 }

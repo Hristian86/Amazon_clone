@@ -3,9 +3,10 @@ import './RightSide.css';
 import { useStateValue } from '../../../../components/ContextApi/StateProvider';
 import { useAlert } from 'react-alert';
 import AlertProductComponent from '../../../../components/Products/AlertProductcomponent';
+import Loader from '../../../../components/Loader/Loader';
 
 const RightSide = ({ content, createdOn, description, negativeVotes, positiveVote, price, quantity, rating, shortContent, title, votesCount, id, image }) => {
-    
+
     const [{ basket }, dispatch] = useStateValue();
     const [state, setState] = useState();
 
@@ -98,9 +99,19 @@ const RightSide = ({ content, createdOn, description, negativeVotes, positiveVot
             </div>
         </div>
 
-        <div className="text-right mt-3 mb-3">
-            <button onClick={addToBasket} className="btn btn-warning">Add to basket</button>
-        </div>
+        {state?.loader
+            ?
+            <div className="text-right mt-3 mb-3">
+                <Loader />
+            </div>
+            :
+            <div className="text-right mt-3 mb-3">
+                <button
+                    onClick={addToBasket}
+                    className="btn btn-warning">
+                    Add to basket
+                </button>
+            </div>}
 
     </div>
 

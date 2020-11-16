@@ -9,7 +9,7 @@ const SubtotalPrice = () => {
     const [{ basket }, dispatch] = useStateValue();
     const history = useHistory();
 
-    // Puching to proceed with payment process
+    // Puching to proceed with payment process.
     const upPage = () => {
         window.scrollTo(0, 0);
         history.push('/payment');

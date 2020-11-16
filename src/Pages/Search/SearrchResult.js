@@ -23,21 +23,21 @@ const SearchResult = () => {
     });
 
 
-    // checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component
-    // Catched most of the obvius use cases
+    // Checking data from back end, if its present then it will itererate thrugh the product array and map the product to the component.
+    // Catched most of the obvious use cases.
     const filters = (searchItemName) => {
         if (searchItemName !== undefined && searchItemName !== "" && searchItemName !== null && searchItemName.length > 0 && fetchData[0] !== undefined) {
             loading = true;
             let display = [];
-            let displayItemss = [];
             
             let sortedData = fetchData[0]?.filter(data => {
 
                 return data?.categories?.filter(data => {
                     //console.log(data?.products);
-                    displayItemss = data?.products?.filter(data => {
+                    return data?.products?.filter(data => {
+                        // Check the searched word in the title, can be implemented more types of searches.
                         if (data.title.toLowerCase().includes(searchItemName.toLowerCase().toString())) {
-                            console.log(data);
+                            // Adding data search result in return array.
                             display.push(data);
                             return data
                         }
@@ -50,16 +50,17 @@ const SearchResult = () => {
         }
     }
 
-    useEffect(() => {
-        if (searchWord !== query.get("search")) {
-            setSearchWord(searchItem);
-            let result = filters(searchItem);
-            setProduct({
-                data: result,
-            });
-        }
-    }, [fetchData]);
+    //useEffect(() => {
+    //    if (searchWord !== query.get("search")) {
+    //        setSearchWord(searchItem);
+    //        let result = filters(searchItem);
+    //        setProduct({
+    //            data: result,
+    //        });
+    //    }
+    //}, [fetchData]);
 
+    // Checking the search word in the search bar if it is changed and if it is changed, redisplay the filters method results.
     if (searchWord !== query.get("search")) {
         setSearchWord(searchItem);
         let result = filters(searchItem);
@@ -68,10 +69,11 @@ const SearchResult = () => {
         });
     }
 
+    // Search result view.
     return <div>
 
         <div className="">
-            <h2 className="text-center">You searched for '{searchItem}'</h2>
+            <h2 className="text-center search__results">You searched for '{searchItem}'</h2>
 
             <img className="home__image2" src="https://www.sellerapp.com/blog/wp-content/uploads/2019/02/Amazon-Product-Photography-Guidelines-and-1.png" alt="." />
         </div>

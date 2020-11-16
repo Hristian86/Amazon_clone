@@ -10,8 +10,11 @@ const CategoryChild = () => {
         return new URLSearchParams(useLocation().search);
     }
     let query = useQuery();
+
+    // Query parametar from url.
     let perantid = query.get("perantid");
 
+    // This is the chields of the root category e.g. Phones, Pc components, Watches.
     return <div className="home bg-light">
 
         <img className="home__image" src="/images/amazon_prime.jpg" alt="." />

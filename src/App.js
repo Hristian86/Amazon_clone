@@ -196,10 +196,6 @@ const App = () => {
                             <ProductList />
                         </Route>
 
-                        <Route path="/categories/:name?">
-                            <Categories />
-                        </Route>
-
                         <Route path="/product/:name?">
                             <PrdocutDetails />
                         </Route>
