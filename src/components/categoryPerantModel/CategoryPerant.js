@@ -34,9 +34,9 @@ const CategoryPerant = ({ title, image, id, categoriesCount }) => {
                 </h5>}
 
         </div>
-        <div className="image__holedPerant w-100">
-            <img src={image} className="image__style" alt="." />
-        </div>
+
+        <img src={image} className="image__style" alt="." />
+
     </div>
 
 }
