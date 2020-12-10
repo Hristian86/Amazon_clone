@@ -5,10 +5,12 @@
     "\\src",
     "\\src\\components",
     "\\src\\components\\BaseUrl",
+    "\\src\\components\\categoryPerantModel",
     "\\src\\Pages",
     "\\src\\Pages\\AdminPage",
+    "\\src\\Pages\\Home",
     "\\src\\Pages\\Search"
   ],
-  "SelectedNode": "\\src\\Pages\\AdminPage\\AdminPage.js",
+  "SelectedNode": "\\src\\components\\BaseUrl\\BaseUrl.js",
   "PreviewInSolutionExplorer": false
 }

@@ -70,7 +70,7 @@ const SearchResult = () => {
     }
 
     // Search result view.
-    return <div>
+    return <div className="bg-light">
 
         <div className="">
             <h2 className="text-center search__results">You searched for '{searchItem}'</h2>
