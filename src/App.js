@@ -191,7 +191,7 @@ const App = () => {
                         <Route exact path="/orderdetails">
                             {user[0]?.user?.role
                                 ? <DetailsItems />
-                                : <Home />}
+                                : <Login />}
                         </Route>
 
                         {/*<Route path="/categories/:id">

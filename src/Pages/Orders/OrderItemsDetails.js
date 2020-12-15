@@ -13,7 +13,7 @@ const OrderItemsDetails = ({ data, index }) => {
     return <tr key={index} className="order__table" onClick={viewDetails}>
         <th scope="col">{index + 1}</th>
         <td>{new Date(data?.createdOn).toDateString()}</td>
-        <td>{data?.totalSum} <small>&euro;</small></td>
+        <td>{data?.totalSum.toFixed(2)} <small>&euro;</small></td>
         <ProductList data={data?.orderItems} />
     </tr>
 }
