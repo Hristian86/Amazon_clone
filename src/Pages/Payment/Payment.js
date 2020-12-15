@@ -3,6 +3,7 @@ import './Payment.css';
 import { useStateValue } from '../../components/ContextApi/StateProvider';
 import CheckoutProduct from '../../components/Products/CheckoutProduct';
 import { useHistory } from 'react-router';
+import BuyItems from '../../components/BuyProduct/BuyItems';
 
 const Payment = (props) => {
     const [{ user, basket }, dispatch] = useStateValue();
@@ -36,14 +37,14 @@ const Payment = (props) => {
                 </div>
                 <div className="payment__items">
                     {basket.map((item, index) => (
-                        <div key={item.id}>
+                        <div key={item?.id}>
                         <CheckoutProduct
-                            key={item.id}
-                            id={item.id}
-                            title={item.title}
-                            image={item.image}
-                            price={item.price}
-                            rating={item.rating}
+                            key={item?.id}
+                            id={item?.id}
+                            title={item?.title}
+                            image={item?.image}
+                            price={item?.price}
+                            rating={item?.rating}
                             />
                             {basket.length - 1 === index ? null : <hr />}
                             </div>
@@ -61,6 +62,19 @@ const Payment = (props) => {
 
                 <div className="payment__details">
                     <h3>Stripe i gues</h3>
+                </div>
+            </div>
+
+            <hr />
+
+            <div className="payment__section pl-sm-5">
+
+                <div className="payment__title">
+                    <h3>Buy products.</h3>
+                </div>
+
+                <div className="payment__details">
+                    <h3 className="text-right"><BuyItems /></h3>
                 </div>
             </div>
         </div>

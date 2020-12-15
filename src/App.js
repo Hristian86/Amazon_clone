@@ -34,6 +34,8 @@ import SearchResult from './Pages/Search/SearrchResult';
 import StartAdminPage from './Pages/AdminPage/StartAdminPage';
 import CategoryChild from './Pages/CategoryChild/CategoryChild';
 import ProductList from './Pages/ProductListPage/ProductListPage';
+import OrderPage from './Pages/Orders/OrderPage';
+import DetailsItems from './Pages/Orders/DetailsItems';
 
 const App = () => {
     const [state, setState] = useState({});
@@ -177,6 +179,18 @@ const App = () => {
                         <Route exact path="/adminpage">
                             {user[0]?.user?.role === "Admin"
                                 ? <AdminPage />
+                                : <Home />}
+                        </Route>
+
+                        <Route exact path="/orders">
+                            {user[0]?.user?.role
+                                ? <OrderPage />
+                                : <Home />}
+                        </Route>
+
+                        <Route exact path="/orderdetails">
+                            {user[0]?.user?.role
+                                ? <DetailsItems />
                                 : <Home />}
                         </Route>
 

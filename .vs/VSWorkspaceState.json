@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\BaseUrl",
-    "\\src\\components\\categoryPerantModel",
+    "\\src\\components\\ContextApi",
+    "\\src\\components\\Header",
     "\\src\\Pages",
-    "\\src\\Pages\\AdminPage",
-    "\\src\\Pages\\Home",
-    "\\src\\Pages\\Search"
+    "\\src\\Pages\\DetailProductPage",
+    "\\src\\Pages\\DetailProductPage\\ProductDetails",
+    "\\src\\Pages\\DetailProductPage\\ProductDetails\\Sides",
+    "\\src\\Pages\\Orders"
   ],
-  "SelectedNode": "\\src\\components\\BaseUrl\\BaseUrl.js",
+  "SelectedNode": "\\src\\Pages\\DetailProductPage\\ProductDetails\\Sides\\RightSide.js",
   "PreviewInSolutionExplorer": false
 }

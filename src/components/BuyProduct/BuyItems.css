@@ -1,0 +1,7 @@
+.buy__item {
+    cursor: pointer;
+}
+
+.buy__item:hover {
+    color: green;
+}

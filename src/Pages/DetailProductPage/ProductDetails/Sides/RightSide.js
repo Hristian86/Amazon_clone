@@ -65,7 +65,9 @@ const RightSide = ({ content, createdOn, description, negativeVotes, positiveVot
             <div>
                 {quantity === 1
                     ? "Only one left in stock"
-                    : quantity + " in stock"
+                    : quantity <= 0
+                        ? "Out of stock"
+                        : quantity + " in stock"
                 }
             </div>
 
@@ -104,7 +106,14 @@ const RightSide = ({ content, createdOn, description, negativeVotes, positiveVot
             <div className="text-right mt-3 mb-3">
                 <Loader />
             </div>
-            :
+            : quantity <= 0 ? 
+                <div className="text-right mt-3 mb-3">
+                    <button
+                        className="btn btn-info">
+                        Out of stock
+                </button>
+                </div>
+                :
             <div className="text-right mt-3 mb-3">
                 <button
                     onClick={addToBasket}

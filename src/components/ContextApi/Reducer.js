@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET, REMOVE_ITEM_FROM_BASKET, GET_ITEMS, CHECK_USER, REMOVE_USER, SET_CATEGORY_PERANT } from "./Types";
+import { ADD_TO_BASKET, REMOVE_ITEM_FROM_BASKET, GET_ITEMS, CHECK_USER, REMOVE_USER, SET_CATEGORY_PERANT, REMOVE_ALL_FROM_BASKET } from "./Types";
 
 // initail state of the app
 
@@ -79,6 +79,13 @@ const Reducer = (state, action) => {
             return {
                 ...state,
                 basket: [...state.basket, action.items]
+            };
+            break;
+        case REMOVE_ALL_FROM_BASKET:
+            // adding items to basek
+            return {
+                ...state,
+                basket: [...state.basket.filter(i => i.id == 0)]
             };
             break;
         default:

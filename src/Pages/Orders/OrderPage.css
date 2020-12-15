@@ -1,0 +1,7 @@
+.order__table {
+    cursor: pointer;
+}
+
+.order__table:hover {
+    background: #e8f8f5;
+}
