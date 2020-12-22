@@ -18,7 +18,7 @@ const Home = () => {
     const showData = () => {
         history.push("/landingadminpage");
     }
-    
+
     // Some tests
     const testApi = async () => {
 
@@ -30,32 +30,40 @@ const Home = () => {
     }
 
     return <div className="home bg-light">
-    
+
         <img className="home__image" src="/images/amazon_prime.jpg" alt="." />
-                <div className="home__row row ml-sm-2 justify-content-center">
+        <div className="home__row row ml-sm-2 justify-content-center">
 
 
-                    <div className="row justify-content-center">
-                        {fetchData[0] === undefined ? <Loader /> : null}
-                        {fetchData[0]?.map((data, index) => (
-                            <CategoryPerant
-                                className="col-6"
-                                index={index}
-                                delimeter={data?.delimeter}
-                                categoriesCount={data?.categoriesCount}
-                                key={data.id}
-                                type={data?.type}
-                                id={data?.id}
-                                title={data?.name}
-                                price={0}
-                                data={data}
-                                rating={0}
-                                productsCount={data.productsCount}
-                                image={data?.imageURL ? data.imageURL : data.imageUrl}
-                            />
-                        ))}
+            <div className="row justify-content-center">
+                {fetchData[0] === undefined
+                    ? <div>
+                        <h3 className="overlap__wait">Please wait</h3>
+                        <div className="text-center">
+                            <Loader />
+                        </div>
                     </div>
-                </div>
+                    : null}
+
+                {fetchData[0]?.map((data, index) => (
+                    <CategoryPerant
+                        className="col-6"
+                        index={index}
+                        delimeter={data?.delimeter}
+                        categoriesCount={data?.categoriesCount}
+                        key={data.id}
+                        type={data?.type}
+                        id={data?.id}
+                        title={data?.name}
+                        price={0}
+                        data={data}
+                        rating={0}
+                        productsCount={data.productsCount}
+                        image={data?.imageURL ? data.imageURL : data.imageUrl}
+                    />
+                ))}
+            </div>
+        </div>
 
         {role === "Admin" ?
             <div className="row w-100 d-flex justify-content-between">
@@ -69,7 +77,7 @@ const Home = () => {
             </div>
             : null}
 
-            </div>
+    </div>
 }
 
-        export default Home;
+export default Home;

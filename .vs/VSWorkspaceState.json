@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\Products",
+    "\\src\\components\\BaseUrl",
     "\\src\\Pages",
-    "\\src\\Pages\\Checkout",
     "\\src\\Pages\\DetailProductPage",
     "\\src\\Pages\\DetailProductPage\\ProductDetails",
     "\\src\\Pages\\DetailProductPage\\ProductDetails\\Sides",
+    "\\src\\Pages\\Home",
     "\\src\\Pages\\Orders"
   ],
-  "SelectedNode": "\\src\\Pages\\Orders\\OrderItemsDetails.js",
+  "SelectedNode": "\\src\\components\\BaseUrl\\BaseUrl.js",
   "PreviewInSolutionExplorer": false
 }
