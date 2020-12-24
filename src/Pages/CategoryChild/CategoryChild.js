@@ -17,7 +17,6 @@ const CategoryChild = () => {
     // This is the chields of the root category e.g. Phones, Pc components, Watches.
     return <div className="home bg-light">
 
-        <img className="home__image" src="/images/amazon_prime.jpg" alt="." />
         <div className="home__row row ml-sm-2 justify-content-center">
 
 

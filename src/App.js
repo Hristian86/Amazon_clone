@@ -183,9 +183,10 @@ const App = () => {
                         </Route>
 
                         <Route exact path="/orders">
-                            {user[0]?.user?.role
+                            {/*{user[0]?.user?.role
                                 ? <OrderPage />
-                                : <Home />}
+                                : <Login />}*/}
+                            <OrderPage />
                         </Route>
 
                         <Route exact path="/orderdetails">
@@ -222,7 +223,9 @@ const App = () => {
                             <NotFound />
                         </Route>
                     </Switch>
+
                     <Footer />
+
                 </Router>
 
             </Layout>

@@ -31,16 +31,17 @@ const Home = () => {
 
     return <div className="home bg-light">
 
-        <img className="home__image" src="/images/amazon_prime.jpg" alt="." />
+        {/*<img className="home__image" src="/images/amazon_prime2.jpg" alt="." />*/}
+
         <div className="home__row row ml-sm-2 justify-content-center">
 
 
             <div className="row justify-content-center">
                 {fetchData[0] === undefined
                     ? <div>
-                        <h3 className="overlap__wait">Please wait</h3>
-                        <div className="text-center">
-                            <Loader />
+                        <h3 className="overlap__wait shadow-box text-white">Please wait ...</h3>
+                        <div className="text-center text-white shadow-box">
+                            Loading <Loader />
                         </div>
                     </div>
                     : null}

@@ -53,7 +53,7 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
             loader: true
         });
         setTimeout(() => {
-            upPage();
+            //upPage();
             history.push(`/productlist/${title}?categoryid=${id}&categoryPerantId=${categoryPerantId}`);
         }, 300);
     }
@@ -63,7 +63,7 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
             loader: true
         });
         setTimeout(() => {
-            upPage();
+            //upPage();
             // Currently setting this parametar, categoryPerantId is category perant id, categoryid is chield category id and "id" is real product id.
             console.log(categoryId);
             console.log(id);
@@ -101,9 +101,9 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
 
             <img src={image} alt="." />
 
-            <div className="button__holder">
+            {/*<div className="button__holder">
                 {state?.loader ? <Loader /> : <button onClick={addToBasket} className="btn button__addToNasket m-auto">Add to basket</button>}
-            </div>
+            </div>*/}
         </div>
 
     } else {

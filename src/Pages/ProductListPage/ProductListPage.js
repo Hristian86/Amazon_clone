@@ -57,7 +57,7 @@ const ProductList = () => {
 
         <div className="">
 
-            <img className="home__image2" src="https://www.sellerapp.com/blog/wp-content/uploads/2019/02/Amazon-Product-Photography-Guidelines-and-1.png" alt="." />
+            <img className="home__image" src="https://www.sellerapp.com/blog/wp-content/uploads/2019/02/Amazon-Product-Photography-Guidelines-and-1.png" alt="." />
         </div>
 
         <div className="row justify-content-center">

@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\BaseUrl",
+    "\\src\\components\\categoryPerantModel",
+    "\\src\\components\\Products",
     "\\src\\Pages",
-    "\\src\\Pages\\DetailProductPage",
-    "\\src\\Pages\\DetailProductPage\\ProductDetails",
-    "\\src\\Pages\\DetailProductPage\\ProductDetails\\Sides",
+    "\\src\\Pages\\CategoryChild",
+    "\\src\\Pages\\Checkout",
     "\\src\\Pages\\Home",
-    "\\src\\Pages\\Orders"
+    "\\src\\Pages\\Payment"
   ],
-  "SelectedNode": "\\src\\components\\BaseUrl\\BaseUrl.js",
+  "SelectedNode": "\\src\\Pages\\Home\\Home.js",
   "PreviewInSolutionExplorer": false
 }

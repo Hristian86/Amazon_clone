@@ -3,14 +3,23 @@ import FetchData from '../../components/AuthListener/FetchData';
 import './OrderPage.css';
 import OrderTable from './OrderTable';
 import Loader from '../../components/Loader/Loader';
+import { useHistory } from 'react-router';
+import { useStateValue } from '../../components/ContextApi/StateProvider';
 
 const OrderPage = () => {
+    const [{ user }, dispatch] = useStateValue();
+
     const [state, setState] = useState({});
+    const history = useHistory();
+    if (!user[0]?.user?.email) {
+        history.push('/authO/login/return');
+    }
 
     // Get orders from back end for current user.
     const getOrders = async () => {
         try {
             const result = await FetchData("api/userOrders", {}, "POST");
+            // To Do do something when there is error/s.
             if (!result.error || !result.errors) {
                 // Add the result to state.
                 setState({

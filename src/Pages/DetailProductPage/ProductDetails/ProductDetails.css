@@ -1,3 +1,10 @@
 .container__perant {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
+    padding-top: 20px;
+    background: url(/images/amazon_prime2.jpg);
+    background-size: cover;
+}
+
+.container__forPadding {
+    padding-bottom: 100px;
 }

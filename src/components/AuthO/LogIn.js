@@ -84,7 +84,7 @@ const Login = (props) => {
                     }
                     error.innerHTML = "Success";
 
-                    if (payment === "payment") {
+                    if (payment === "return") {
                         history.goBack();
                     } else {
                         setTimeout(function () {

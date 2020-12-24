@@ -75,7 +75,7 @@ const SearchResult = () => {
         <div className="">
             <h2 className="text-center search__results">You searched for '{searchItem}'</h2>
 
-            <img className="home__image2" src="https://www.sellerapp.com/blog/wp-content/uploads/2019/02/Amazon-Product-Photography-Guidelines-and-1.png" alt="." />
+            <img className="home__image" src="https://www.sellerapp.com/blog/wp-content/uploads/2019/02/Amazon-Product-Photography-Guidelines-and-1.png" alt="." />
         </div>
 
 

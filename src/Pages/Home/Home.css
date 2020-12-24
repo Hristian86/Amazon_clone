@@ -2,6 +2,10 @@
 .home {
     margin-left: auto;
     margin-right: auto;
+    background: url(/images/amazon_prime2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 250px;
 }
 
 /* Home image*/
@@ -9,13 +13,15 @@
     width: 100%;
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     z-index: -1;
-    margin-bottom: -330px;
+    margin-bottom: -580px;
 }
 
 .home__row {
     display: flex;
     z-index: 1;
     width: 99%!important;
+    min-height: 600px!important;
+    padding-top: 100px;
 }
 
 .categories-info {

@@ -9,7 +9,7 @@ const Payment = (props) => {
     const [{ user, basket }, dispatch] = useStateValue();
     const history = useHistory();
     if (!user[0]?.user?.email) {
-        history.push('/authO/login/payment');
+        history.push('/authO/login/return');
     }
 
     return <div className="payment container">

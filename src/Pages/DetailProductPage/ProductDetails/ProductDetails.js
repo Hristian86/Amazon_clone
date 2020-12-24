@@ -74,46 +74,49 @@ const PrdocutDetails = () => {
         }
     }, [fetchData])
     console.log(product);
-    return <div className="container container__perant">
+    return <div className="container__perant">
 
-        {product.data[0] !== undefined ?
+        <div className="container container__forPadding">
 
-            product.data.map((data, index) => (
-                < DetailPage
-                    key={data?.id}
-                    id={data?.id}
-                    categoryId={data?.categoryId}
-                    content={data?.content}
-                    createdOn={data?.createdOn}
-                    description={data?.description}
-                    imageUrl={data?.imageUrl}
-                    negativeVotes={data?.negativeVotes}
-                    positiveVotes={data?.positiveVotes}
-                    price={data?.price}
-                    quantity={data?.quantity}
-                    rating={data?.rating}
-                    shortContent={data?.shortContent}
-                    title={data?.title}
-                    votesCount={data?.votesCount}
-                />
-            ))
-            :
-            null
-        }
+            {product.data[0] !== undefined ?
 
-        {fetchData[0] === undefined ?
-            <div className="text-center">
-                <Loader />
-            </div>
-            :
-            null
-        }
+                product.data.map((data, index) => (
+                    < DetailPage
+                        key={data?.id}
+                        id={data?.id}
+                        categoryId={data?.categoryId}
+                        content={data?.content}
+                        createdOn={data?.createdOn}
+                        description={data?.description}
+                        imageUrl={data?.imageUrl}
+                        negativeVotes={data?.negativeVotes}
+                        positiveVotes={data?.positiveVotes}
+                        price={data?.price}
+                        quantity={data?.quantity}
+                        rating={data?.rating}
+                        shortContent={data?.shortContent}
+                        title={data?.title}
+                        votesCount={data?.votesCount}
+                    />
+                ))
+                :
+                null
+            }
 
-        {fetchData[0] !== undefined && product.data[0] === undefined
-            ? <div className="text-center">Item not found</div>
-            : null
-        }
+            {fetchData[0] === undefined ?
+                <div className="text-center">
+                    <Loader />
+                </div>
+                :
+                null
+            }
 
+            {fetchData[0] !== undefined && product.data[0] === undefined
+                ? <div className="text-center">Item not found</div>
+                : null
+            }
+
+        </div>
     </div>
 
 }

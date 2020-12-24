@@ -8,3 +8,20 @@
 .header__logo {
     width: 100px;
 }
+
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    /*left: 10%;
+    right: 10%;*/
+    width: 100%;
+    padding: 5px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    z-index: 99 !important;
+}

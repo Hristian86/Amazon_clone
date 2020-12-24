@@ -44,12 +44,12 @@ const Categories = (props) => {
     // array for map-ing products
     const displayArray = filter();
 
-    // Not using this component
+    // Not using this component.
     return <div className="bg-light">
 
         <div className="">
 
-            <img className="home__image2" src="https://www.sellerapp.com/blog/wp-content/uploads/2019/02/Amazon-Product-Photography-Guidelines-and-1.png" alt="." />
+            <img className="home__image2" src="/images/amazon_prime2.jpg" alt="." />
         </div>
 
         <div className="row justify-content-center">
