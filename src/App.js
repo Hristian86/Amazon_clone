@@ -157,9 +157,13 @@ const App = () => {
                         <Route exact path="/authO/register">
                             <Register />
                         </Route>
+
                         <Route exact path="/authO/login/:payment?">
-                            <Login />
+                            {user[0]?.user?.role
+                                ? <Home />
+                                : <Login />}
                         </Route>
+
                         <Route exact path="/authO/logout">
                             <Logout />
                         </Route>

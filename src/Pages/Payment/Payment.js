@@ -4,10 +4,15 @@ import { useStateValue } from '../../components/ContextApi/StateProvider';
 import CheckoutProduct from '../../components/Products/CheckoutProduct';
 import { useHistory } from 'react-router';
 import BuyItems from '../../components/BuyProduct/BuyItems';
+import { useState } from 'react';
 
 const Payment = (props) => {
     const [{ user, basket }, dispatch] = useStateValue();
+    const [buyState, setBuyState] = useState({
+        loading: false,
+    });
     const history = useHistory();
+
     if (!user[0]?.user?.email) {
         history.push('/authO/login/return');
     }
@@ -74,7 +79,7 @@ const Payment = (props) => {
                 </div>
 
                 <div className="payment__details">
-                    <h3 className="text-right"><BuyItems /></h3>
+                    <h3 className="text-right"><BuyItems buyState={buyState} setBuyState={setBuyState} /></h3>
                 </div>
             </div>
         </div>

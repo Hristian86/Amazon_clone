@@ -4,8 +4,9 @@ import './BuyItems.css';
 import FetchData from '../AuthListener/FetchData';
 import { REMOVE_ALL_FROM_BASKET } from '../ContextApi/Types';
 import { useHistory } from 'react-router';
+import Loader from '../Loader/Loader';
 
-const BuyItems = () => {
+const BuyItems = ({ buyState, setBuyState }) => {
     const [{ basket }, dispatch] = useStateValue();
     const history = useHistory();
 
@@ -21,6 +22,10 @@ const BuyItems = () => {
         const productIds = basket.map(data => data.id);
 
         try {
+            setBuyState({
+                loading: true,
+            })
+
             const payload = {
                 cartProductIds: productIds
             }
@@ -31,14 +36,23 @@ const BuyItems = () => {
 
                 history.push('/');
                 window.location.reload(false);
+            } else {
+                setBuyState({
+                    loading: false,
+                })
             }
+
         } catch (e) {
+            setBuyState({
+                loading: false,
+            })
+
             console.log(e);
         }
     }
 
     return <div className="buy__item btn btn-danger" onClick={buyItems}>
-        Buy now.
+        {buyState.loading == false ? "Buy now." : <Loader />}
     </div>
 
 }
