@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\BaseUrl",
     "\\src\\components\\BuyProduct",
+    "\\src\\components\\categoryPerantModel",
     "\\src\\Pages",
     "\\src\\Pages\\CategoryChild",
     "\\src\\Pages\\Checkout",
     "\\src\\Pages\\Home",
     "\\src\\Pages\\Payment"
   ],
-  "SelectedNode": "\\src\\App.js",
+  "SelectedNode": "\\src\\Pages\\Home\\Home.js",
   "PreviewInSolutionExplorer": false
 }

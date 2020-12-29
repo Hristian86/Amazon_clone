@@ -83,13 +83,13 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
                         <Loader />
                     </div>
                     :
-                    <h5>
+                    <h1 className="h1__header">
                         <p className="product__title">{title}</p>
                         <p className="product__price">
                             <small>&euro;</small>
                             <strong>{price}</strong>
                         </p>
-                    </h5>}
+                    </h1>}
                 <div className="product__rating">
                     {!state?.loader ? Array(rating)
                         .fill()
@@ -122,11 +122,11 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
                         <Loader />
                     </div>
                     :
-                    <h5>
+                    <h1 className="h1__header">
                         <p>{title}</p>
                         <small>products </small>
                         <strong>{productsCount}</strong>
-                    </h5>}
+                    </h1>}
 
                 <div className="product__rating">
                     {state?.loader ? null : type }

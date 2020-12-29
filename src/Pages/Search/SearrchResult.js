@@ -8,6 +8,9 @@ import FetchData from '../../components/AuthListener/FetchData';
 import Loader from '../../components/Loader/Loader';
 import Products from '../../components/Products/Products';
 
+// Search is implemented not efficient, if there are many branches/categories it will get even slower.
+// For now it works, but for future ,if it has alot of products, it will not work well and then it has to be refactored.
+// Potential idea is to make the search on the backend or to add in contextApi store, separeted array that contains only products and To Do the search there.
 let loading = false;
 const SearchResult = () => {
     const [{ fetchData }, dispatch] = useStateValue();
@@ -35,7 +38,7 @@ const SearchResult = () => {
                 return data?.categories?.filter(data => {
                     //console.log(data?.products);
                     return data?.products?.filter(data => {
-                        // Check the searched word in the title, can be implemented more types of searches.
+                        // Check the searched word/char in the title, it can be implemented with different search properties, not only by title.
                         if (data.title.toLowerCase().includes(searchItemName.toLowerCase().toString())) {
                             // Adding data search result in return array.
                             display.push(data);

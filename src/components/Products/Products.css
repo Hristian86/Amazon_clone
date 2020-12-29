@@ -46,6 +46,10 @@
     /*font-size: 240%;*/
 }
 
+.h1__header {
+    font-size: 20px;
+}
+
 .product__info {
     height: 100px;
     margin-bottom: 15px;

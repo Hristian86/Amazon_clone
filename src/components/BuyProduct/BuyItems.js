@@ -31,7 +31,7 @@ const BuyItems = ({ buyState, setBuyState }) => {
             }
 
             const result = await FetchData("api/cart", payload, "POST");
-            if (!result.error || !result.errors) {
+            if (!result.error && !result.errors) {
                 removeAllFromBasket();
 
                 history.push('/');
