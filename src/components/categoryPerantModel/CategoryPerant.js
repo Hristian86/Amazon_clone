@@ -28,7 +28,7 @@ const CategoryPerant = ({ title, image, id, categoriesCount }) => {
                 </div>
                 :
                 <h1 className="h1__header">
-                    <p className="product__title m-auto">{title} {/*<strong>{categoriesCount}</strong>*/}
+                    <p className="product__title m-auto">{title}
                     </p>
                     <small>Shop our full selection. </small>
                 </h1>}

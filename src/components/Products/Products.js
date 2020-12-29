@@ -71,7 +71,7 @@ const Products = ({ id, title, image, price, rating, data, index, productsCount,
         }, 300);
     }
 
-    // Patched up for now with check for price if the price is 0 or lover, then it maps all categories else it maps products in a given by parametar category.
+    // Patched up for now with check for price if the price is 0 or lover, then it maps all categories else it maps products by parametar category.
     // Mapping products.
     if (price > 0 || data?.length > 0) {
 

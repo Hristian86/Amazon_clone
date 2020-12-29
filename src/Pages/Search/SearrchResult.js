@@ -10,7 +10,7 @@ import Products from '../../components/Products/Products';
 
 // Search is implemented not efficient, if there are many branches/categories it will get even slower.
 // For now it works, but for future ,if it has alot of products, it will not work well and then it has to be refactored.
-// Potential idea is to make the search on the backend or to add in contextApi store, separeted array that contains only products and To Do the search there.
+// Potential idea is to make the search on the backend or to add in contextApi store, separeted array that contains only products and To Do the search there. 
 let loading = false;
 const SearchResult = () => {
     const [{ fetchData }, dispatch] = useStateValue();
