@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\BuyProduct",
-    "\\src\\components\\categoryPerantModel",
+    "\\src\\components\\Header",
     "\\src\\Pages",
-    "\\src\\Pages\\CategoryChild",
+    "\\src\\Pages\\AdminPage",
     "\\src\\Pages\\Checkout",
     "\\src\\Pages\\Home",
+    "\\src\\Pages\\Orders",
     "\\src\\Pages\\Payment"
   ],
-  "SelectedNode": "\\src\\components\\BuyProduct\\BuyItems.js",
+  "SelectedNode": "\\src\\Pages\\AdminPage\\AdminIp.js",
   "PreviewInSolutionExplorer": false
 }

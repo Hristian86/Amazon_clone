@@ -36,6 +36,7 @@ import CategoryChild from './Pages/CategoryChild/CategoryChild';
 import ProductList from './Pages/ProductListPage/ProductListPage';
 import OrderPage from './Pages/Orders/OrderPage';
 import DetailsItems from './Pages/Orders/DetailsItems';
+import AdminIp from './Pages/AdminPage/AdminIp';
 
 const App = () => {
     const [state, setState] = useState({});
@@ -177,6 +178,13 @@ const App = () => {
                         <Route exact path="/landingadminpage" >
                             {user[0]?.user?.role === "Admin"
                                 ? <StartAdminPage />
+                                : <Home />}
+                        </Route>
+
+
+                        <Route exact path="/adminIp" >
+                            {user[0]?.user?.role === "Admin"
+                                ? <AdminIp />
                                 : <Home />}
                         </Route>
 

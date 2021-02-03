@@ -5,6 +5,8 @@ import OrderTable from './OrderTable';
 import Loader from '../../components/Loader/Loader';
 import { useHistory } from 'react-router';
 import { useStateValue } from '../../components/ContextApi/StateProvider';
+import getCookie from '../../components/Cookies/GetCookie';
+import { Link } from 'react-router-dom';
 
 const OrderPage = () => {
     const [{ user }, dispatch] = useStateValue();
@@ -39,7 +41,19 @@ const OrderPage = () => {
     //if (state?.orders !== undefined) {
     //}
 
-    return <div >
+    return <div>
+
+        {user[0]?.user?.role === "Admin"
+            ?
+            <Link
+                to="/adminIp"
+                className="mr-3 text-infos2"
+            >
+                <div className="btn btn-primary">
+                    <span className="header__optionsLineOne text-white">Ip addresses</span>< br />
+                </div>
+            </Link>
+            : null}
 
         <table className="table text-center">
             <thead>
